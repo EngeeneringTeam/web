@@ -1,0 +1,13 @@
+.example-flat-button {
+  background: $white;
+  border: 1px solid $black;
+  box-shadow: none;
+  cursor: pointer;
+  height: 10%;
+  margin: 10%;
+  padding: 0;
+  width: 80%;
+  &:focus {
+    outline: 0;
+  }
+}
