@@ -5,4 +5,4 @@ import App from './containers/App.jsx';
 
 import './styles/main.scss';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.querySelector('.app'));
