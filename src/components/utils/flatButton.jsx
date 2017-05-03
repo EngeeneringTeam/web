@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import {string, func} from 'prop-types';
 
 const FlatButton = (props) => (
   <button
@@ -11,8 +12,8 @@ const FlatButton = (props) => (
 );
 
 FlatButton.propTypes = {
-  onClick: PropTypes.func,
-  children: PropTypes.string,
+  onClick: func,
+  children: string,
 };
 
 export default FlatButton;
