@@ -1,0 +1,71 @@
+.city-picker-component {
+  -moz-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  -webkit-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  width: 150px;
+
+  .city-picker-content {
+    background-color: $gold;
+    border: 1px solid $gold;
+    border-radius: 5px;
+    color: $white;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    height: 40px;
+    letter-spacing: .5px;
+    overflow: hidden;
+    text-decoration: inherit;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: 100%;
+
+    &:focus {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      outline: none;
+    }
+  }
+
+  .city-picker-toggle {
+    & ul {
+      background-color: $white;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      list-style-type: none;
+      margin: inherit;
+      padding: 1px;
+
+      & li {
+        border-bottom: 1px solid $grey-light;
+        height: 30px;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        & button {
+          background-color: $white;
+          border: 0;
+          color: $grey;
+          float: left;
+          font-size: 10px;
+          height: 100%;
+          text-align: center;
+          text-decoration: inherit;
+          text-transform: uppercase;
+          width: 100%;
+
+          &:focus {
+            outline: none;
+          }
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+          }
+        }
+      }
+    }
+  }
+}
