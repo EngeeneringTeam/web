@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import LoginContainer from './LoginContainer.jsx';
 import RegisterContainer from './RegisterContainer.jsx';
+import RestaurantsListContainer from './RestaurantsListContainer.jsx';
 
 const App = () => (
   <Router history={browserHistory}>
@@ -10,6 +11,7 @@ const App = () => (
       <IndexRoute component={LoginContainer} />
       <Route path="/login" component={LoginContainer} />
       <Route path="/register" component={RegisterContainer} />
+      <Route path="/restaurants" component={RestaurantsListContainer} />
       <Route path="*" />
     </Route>
   </Router>

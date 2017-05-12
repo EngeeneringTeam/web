@@ -1,7 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 
-import ExampleFlatButton from '../utils/exampleFlatButton.jsx';
+import CityPicker from '../utils/cityPicker.jsx';
 
 class Login extends React.Component {
 
@@ -9,11 +9,7 @@ class Login extends React.Component {
     return (
       <div className="login-component">
         Login component
-        <ExampleFlatButton
-          onClick={this.onPressButton.bind(this)}
-        >
-          {'Go to Register Component'}
-        </ExampleFlatButton>
+        <CityPicker />
       </div>
     );
   }
