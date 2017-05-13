@@ -21,13 +21,13 @@ class DatePickerComponent extends React.Component {
   render() {
     return (
       <div className="date-picker">
-        <div className="select-day minus-day"><ArrowSVG /></div>
+        <button className="select-day minus-day"><ArrowSVG /></button>
         <DatePicker
           className="picker"
           selected={this.state.startDate}
           onChange={this.handleChange}
         />
-      <div className="select-day plus-day"><ArrowSVG /></div>
+      <button className="select-day plus-day"><ArrowSVG /></button>
       </div>
     );
   }
