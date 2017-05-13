@@ -1,4 +1,5 @@
 import React from 'react';
+import { object } from 'prop-types';
 
 class Restaurant extends React.Component {
 
@@ -50,5 +51,10 @@ class Restaurant extends React.Component {
   }
 
 }
+
+Restaurant.propTypes = {
+  restaurant: object.isRequired,
+};
+
 
 export default Restaurant;
