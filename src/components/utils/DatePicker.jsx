@@ -45,6 +45,7 @@ class DatePickerComponent extends React.Component {
           locale="pl"
           dateFormat="D dddd MMMM YYYY"
           minDate = {moment()}
+          readOnly
         />
       <button className="select-day plus-day" onClick={this.increase}><ArrowSVG /></button>
       </div>

@@ -52,13 +52,18 @@
   .picker {
     border: 0;
     color: $grey-dark;
+    font-size: 10px;
     height: 40px;
     padding: 0;
     text-align: center;
+    text-transform: uppercase;
     width: 80px;
 
     &:focus {
       outline: none;
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
 }
