@@ -1,7 +1,7 @@
 function restaurants(state = [], action) {
   switch (action.type) {
-  case 'CHANGE_EMPLOYEE_DAY':
-    return actions.restaurants;
+  case 'CHANGE_RESTAURANTS':
+    return action.restaurants;
   default:
     return state;
   }

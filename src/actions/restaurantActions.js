@@ -6,12 +6,11 @@ export function getRestaurantsRequest() {
       API
         .getRestaurants()
         .then((body) => {
-          console.log(body);
           dispatch({ type: 'CHANGE_RESTAURANTS', restaurants: body});
           resolve();
         })
         .catch(() => {
-          console.log('getRestaurants catch');
+          dispatch({ type: 'CHANGE_RESTAURANTS', restaurants: [{test: 'test'}]});
           reject();
         });
     });
