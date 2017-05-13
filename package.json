@@ -51,6 +51,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "moment": "^2.18.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-modal": "^1.7.7",
