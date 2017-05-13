@@ -4,9 +4,8 @@ export function getUserRestaurantRequest() {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       API
-        .get('/user/1/restaurants')
+        .get('/users/1/restaurants')
         .then((body) => {
-          alert('OK', body);
           dispatch({ type: 'CHANGE_USER', user: body});
           resolve();
         })
@@ -22,9 +21,8 @@ export function getUserReservationsRequest() {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       API
-        .get('/user/1/reservations')
+        .get('/users/1/reservations')
         .then((body) => {
-          alert('OK', body);
           dispatch({ type: 'CHANGE_USER_RESERVATIONS', userReservations: body});
           resolve();
         })

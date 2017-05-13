@@ -45,6 +45,8 @@ class RestaurantContainer extends React.Component {
     return (
       <Spinner visible={this.state.spinner}>
         <RestaurantPanel
+          user={this.props.user}
+          userReservations={this.props.userReservations}
         />
       </Spinner>
     );
@@ -54,7 +56,7 @@ class RestaurantContainer extends React.Component {
 
 RestaurantContainer.propTypes = {
   user: object.isRequired,
-  userReservations: object.isRequired,
+  userReservations: array.isRequired,
   getUserRestaurantRequest: func.isRequired,
   getUserReservationsRequest: func.isRequired,
 };
