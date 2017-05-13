@@ -22,7 +22,9 @@ class DatePickerComponent extends React.Component {
 
   decrease() {
     const date = this.state.startDate;
-    date.add(-1, 'day');
+    if (date >= moment()) {
+      date.add(-1, 'day');
+    }
     this.setState({startDate: date});
   }
 
@@ -41,9 +43,8 @@ class DatePickerComponent extends React.Component {
           selected={this.state.startDate}
           onChange={this.handleChange}
           locale="pl"
-          dateFormat="DD dddd MMMM YYYY"
+          dateFormat="D dddd MMMM YYYY"
           minDate = {moment()}
-          //maxDate = {}
         />
       <button className="select-day plus-day" onClick={this.increase}><ArrowSVG /></button>
       </div>
