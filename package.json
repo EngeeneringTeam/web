@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack-dev-server --host 0.0.0.0 --port 4000 --inline --hot --watch --content-base ./public",
+    "server": "docker-compose down && docker-compose up",
     "publish": "webpack -g"
   },
   "repository": {
