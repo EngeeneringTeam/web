@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import {func} from 'prop-types';
 
 import ReservationModal from './ReservationModal.jsx';
@@ -40,7 +41,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -68,7 +69,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -96,7 +97,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -124,7 +125,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -152,7 +153,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>

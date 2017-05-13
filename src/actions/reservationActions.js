@@ -1,10 +1,10 @@
 import API from './api/defaultAPI';
 
-export function sendReservationRequest(_reservation) {
+export function sendReservationRequest(_reservation, RESTAURANT_ID) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       API
-        .post('/reservation', {
+        .post(`/restaurants/${RESTAURANT_ID}/reservations`, {
           reservationBegin: _reservation.reservationBegin,
           peopleNumber: _reservation.peopleNumber,
           customer: {
