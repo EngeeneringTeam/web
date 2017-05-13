@@ -23,6 +23,7 @@
   .minus-day {
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    outline: none;
     padding-left: 2px;
 
     svg {
@@ -37,6 +38,7 @@
   .plus-day {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+    outline: none;
     padding-left: 2px;
 
     svg {
@@ -61,9 +63,7 @@
     }
   }
 }
-
 // react-datepicker-cssmodules.css changes
-
 .react-datepicker__header {
   background-color: $gold !important;
   border-bottom: 0 !important;
@@ -126,4 +126,8 @@
 
 .react-datepicker__day {
   color: $grey !important;
+}
+
+.react-datepicker__day.react-datepicker__day--disabled {
+  color: $gold !important;
 }

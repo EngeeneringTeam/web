@@ -10,6 +10,8 @@ class DatePickerComponent extends React.Component {
       startDate: moment(),
     };
     this.handleChange = this.handleChange.bind(this);
+    this.decrease = this.decrease.bind(this);
+    this.increase = this.increase.bind(this);
   }
 
   handleChange(date) {
@@ -18,16 +20,32 @@ class DatePickerComponent extends React.Component {
     });
   }
 
+  decrease() {
+    const date = this.state.startDate;
+    date.add(-1, 'day');
+    this.setState({startDate: date});
+  }
+
+  increase() {
+    const date = this.state.startDate;
+    date.add(1, 'day');
+    this.setState({startDate: date});
+  }
+
   render() {
     return (
       <div className="date-picker">
-        <button className="select-day minus-day"><ArrowSVG /></button>
+        <button className="select-day minus-day" onClick={this.decrease}><ArrowSVG /></button>
         <DatePicker
           className="picker"
           selected={this.state.startDate}
           onChange={this.handleChange}
+          locale="pl"
+          dateFormat="DD dddd MMMM YYYY"
+          minDate = {moment()}
+          //maxDate = {}
         />
-      <button className="select-day plus-day"><ArrowSVG /></button>
+      <button className="select-day plus-day" onClick={this.increase}><ArrowSVG /></button>
       </div>
     );
   }
