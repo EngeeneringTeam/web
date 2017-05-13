@@ -1,0 +1,78 @@
+.people-picker {
+  -moz-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  -webkit-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  align-items: center;
+  box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: center;
+  width: 80px;
+
+  .counter {
+    background: $white;
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    font-weight: 700;
+    height: 30px;
+    justify-content: center;
+    letter-spacing: .5px;
+    overflow: hidden;
+    padding: 5px;
+    text-align: center;
+    text-decoration: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 50px;
+
+    .counter-info {
+      color: $grey;
+      font-size: 5px;
+    }
+
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  .change-button {
+    background-color: $gold;
+    border: 1px solid $gold;
+    color: $white;
+    height: 40px;
+    outline: none;
+    width: 12px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    svg {
+      path {
+        fill: $white;
+      }
+    }
+  }
+
+  .increase {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+
+    svg {
+      padding-bottom: 10px;
+      transform: rotate(270deg);
+    }
+  }
+
+  .decrease {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+
+    svg {
+      padding-top: 13px;
+      transform: rotate(90deg);
+    }
+  }
+}
