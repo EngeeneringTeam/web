@@ -40,7 +40,9 @@ class RestaurantContainer extends React.Component {
     return (
       <Spinner visible={this.state.spinner}>
         <Restaurant
+          location={this.props.location}
           restaurant={this.props.currentRestaurant}
+          sendReservationRequest={this.props.sendReservationRequest}
         />
       </Spinner>
     );
@@ -52,6 +54,8 @@ RestaurantContainer.propTypes = {
   restaurants: array.isRequired,
   getRestaurantRequest: func.isRequired,
   currentRestaurant: object.isRequired,
+  location: object.isRequired,
+  sendReservationRequest: func.isRequired,
 };
 
 function mapStateToProps(state) {

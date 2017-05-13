@@ -41,7 +41,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 5}});}}>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -69,7 +69,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 5}});}}>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -97,7 +97,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 5}});}}>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -125,7 +125,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 5}});}}>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -153,7 +153,7 @@ class RestaurantsList extends React.Component {
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 5}});}}>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>

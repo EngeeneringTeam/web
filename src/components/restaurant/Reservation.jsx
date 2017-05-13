@@ -1,17 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import {func} from 'prop-types';
-import Modal from 'react-modal';
+import {func, object} from 'prop-types';
 
-class ReservationModal extends React.Component {
+class Reservation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isModalVisible: false,
-      activeRestaurant: {
-        id: 1,
-        name: 'Mock Restaurant Name',
-      },
       reservation: {
         name: 'Marek',
         surname: 'Gontarek',
@@ -22,17 +16,12 @@ class ReservationModal extends React.Component {
       },
     };
     this.sendReservation = this.sendReservation.bind(this);
-    this.closeModal = this.closeModal.bind(this);
   }
   render() {
     return (
-      <Modal
-        isOpen={this.state.isModalVisible}
-        contentLabel="ReservationModal"
-        onRequestClose={this.closeModal}
-        shouldCloseOnOverlayClick
-      >
-        {this.state.activeRestaurant.name}<br/>
+      <div style={{border: '1px solid black'}}>
+        Reservation
+        <br/>
         imie:
         <input
           defaultValue="Marek"
@@ -86,10 +75,7 @@ class ReservationModal extends React.Component {
         <button onClick={this.sendReservation}>
           ZAREZERWUJ
         </button>
-        <button onClick={this.closeModal}>
-          ZAMKNIJ MODAL
-        </button>
-      </Modal>
+      </div>
     );
   }
 
@@ -102,25 +88,19 @@ class ReservationModal extends React.Component {
   }
 
   sendReservation() {
-    this.props.sendReservationRequest(this.state.reservation, this.state.activeRestaurant.id);
+    this.props.sendReservationRequest(this.state.reservation, this.props.location.query.id);
   }
 
   changeInput(event, name) {
     this.setState(Object.assign(this.state.reservation, {[name]: event.target.value}));
   }
 
-  openModal() {
-    this.setState({isModalVisible: true });
-  }
-
-  closeModal() {
-    this.setState({isModalVisible: false });
-  }
-
 }
 
-ReservationModal.propTypes = {
+Reservation.propTypes = {
+  location: object.isRequired,
   sendReservationRequest: func.isRequired,
 };
 
-export default ReservationModal;
+
+export default Reservation;

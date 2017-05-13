@@ -1,5 +1,7 @@
 import React from 'react';
-import { object } from 'prop-types';
+import { object, func } from 'prop-types';
+
+import Reservation from './Reservation.jsx';
 
 class Restaurant extends React.Component {
 
@@ -46,6 +48,10 @@ class Restaurant extends React.Component {
         <div>
           {this.props.restaurant.capacity}
         </div>
+        <Reservation
+          location={this.props.location}
+          sendReservationRequest={this.props.sendReservationRequest}
+        />
       </div>
     );
   }
@@ -54,6 +60,8 @@ class Restaurant extends React.Component {
 
 Restaurant.propTypes = {
   restaurant: object.isRequired,
+  location: object.isRequired,
+  sendReservationRequest: func.isRequired,
 };
 
 
