@@ -1,11 +1,16 @@
 import React from 'react';
 import moment from 'moment';
+import {func} from 'prop-types';
 import Modal from 'react-modal';
 
 class ReservationModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isModalVisible: false,
+      activeRestaurant: {
+        name: 'Mock Restaurant Name',
+      },
       reservation: {
         name: 'Marek',
         surname: 'Gontarek',
@@ -15,17 +20,17 @@ class ReservationModal extends React.Component {
         reservationBegin: moment('2017-05-20T00:00:00'),
       },
     };
+    this.sendReservation = this.sendReservation.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
   render() {
     return (
       <Modal
-        isOpen={false}
-        onAfterOpen={()=>{}}
-        onRequestClose={()=>{}}
-        closeTimeoutMS={0}
+        isOpen={this.state.isModalVisible}
         contentLabel="ReservationModal"
+        shouldCloseOnOverlayClick
       >
-        NAZWA RESTAURACJI W KTOREJ REZERWUJE STOLIK<br/>
+        {this.state.activeRestaurant.name}<br/>
         imie:
         <input
           defaultValue="Marek"
@@ -76,10 +81,11 @@ class ReservationModal extends React.Component {
         </select>
 
         <br/>
-        <button onClick={()=>{
-          console.log(this.state.reservation);
-        }}>
+        <button onClick={this.sendReservation}>
           ZAREZERWUJ
+        </button>
+        <button onClick={this.closeModal}>
+          ZAMKNIJ MODAL
         </button>
       </Modal>
     );
@@ -88,15 +94,31 @@ class ReservationModal extends React.Component {
   renderHours() {
     const temp = [];
     for (let i = moment({hour: '00:00'}); i.valueOf() < moment({hour: '24:00'}); i.add(15, 'minutes')) {
-      temp.push(<option value={i.format('HH:mm')}>{i.format('HH:mm')}</option>);
+      temp.push(<option key={i} value={i.format('HH:mm')}>{i.format('HH:mm')}</option>);
     }
     return temp;
+  }
+
+  sendReservation() {
+    this.props.sendReservationRequest(this.state.reservation);
   }
 
   changeInput(event, name) {
     this.setState(Object.assign(this.state.reservation, {[name]: event.target.value}));
   }
 
+  openModal() {
+    this.setState({isModalVisible: true });
+  }
+
+  closeModal() {
+    this.setState({isModalVisible: false });
+  }
+
 }
+
+ReservationModal.propTypes = {
+  sendReservationRequest: func.isRequired,
+};
 
 export default ReservationModal;
