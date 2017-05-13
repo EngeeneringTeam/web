@@ -28,6 +28,7 @@ class ReservationModal extends React.Component {
       <Modal
         isOpen={this.state.isModalVisible}
         contentLabel="ReservationModal"
+        onRequestClose={this.closeModal}
         shouldCloseOnOverlayClick
       >
         {this.state.activeRestaurant.name}<br/>
