@@ -7,6 +7,7 @@ import RestaurantsList from '../components/restaurants/RestaurantsList.jsx';
 import Spinner from '../components/utils/Spinner.jsx';
 
 import * as restaurantActions from '../actions/restaurantActions';
+import * as reservationActions from '../actions/reservationActions';
 
 class RestaurantsListContainer extends React.Component {
   constructor(props) {
@@ -39,7 +40,9 @@ class RestaurantsListContainer extends React.Component {
   render() {
     return (
       <Spinner visible={this.state.spinner}>
-        <RestaurantsList />
+        <RestaurantsList
+          sendReservationRequest={this.props.sendReservationRequest}
+        />
       </Spinner>
     );
   }
@@ -48,6 +51,7 @@ class RestaurantsListContainer extends React.Component {
 
 RestaurantsListContainer.propTypes = {
   getRestaurantsRequest: func.isRequired,
+  sendReservationRequest: func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -57,7 +61,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispachToProps(dispatch) {
-  return bindActionCreators(Object.assign(restaurantActions), dispatch);
+  return bindActionCreators(Object.assign(restaurantActions, reservationActions), dispatch);
 }
 
 export default connect(mapStateToProps, mapDispachToProps)(RestaurantsListContainer);

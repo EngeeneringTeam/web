@@ -1,16 +1,16 @@
-import API from './api/restaurantAPI';
+import API from './api/defaultAPI';
 
 export function getRestaurantsRequest() {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       API
-        .getRestaurants()
+        .get('/restaurants')
         .then((body) => {
           dispatch({ type: 'CHANGE_RESTAURANTS', restaurants: body});
           resolve();
         })
-        .catch(() => {
-          dispatch({ type: 'CHANGE_RESTAURANTS', restaurants: [{test: 'test'}]});
+        .catch((err) => {
+          alert(err);
           reject();
         });
     });
