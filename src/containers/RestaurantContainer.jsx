@@ -1,15 +1,15 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {func} from 'prop-types';
+import { array, func, object } from 'prop-types';
 
-import RestaurantsList from '../components/restaurants/RestaurantsList.jsx';
+import Restaurant from '../components/restaurant/Restaurant.jsx';
 import Spinner from '../components/utils/Spinner.jsx';
 
 import * as restaurantActions from '../actions/restaurantActions';
 import * as reservationActions from '../actions/reservationActions';
 
-class RestaurantsListContainer extends React.Component {
+class RestaurantContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,7 @@ class RestaurantsListContainer extends React.Component {
 
   componentDidMount() {
     this.showSpinner();
-    this.props.getRestaurantsRequest()
+    this.props.getRestaurantRequest()
     .then(() => {
       this.hideSpinner();
     })
@@ -36,12 +36,11 @@ class RestaurantsListContainer extends React.Component {
     this.setState({ spinner: false });
   }
 
-
   render() {
     return (
       <Spinner visible={this.state.spinner}>
-        <RestaurantsList
-          sendReservationRequest={this.props.sendReservationRequest}
+        <Restaurant
+          restaurant={this.props.currentRestaurant}
         />
       </Spinner>
     );
@@ -49,14 +48,16 @@ class RestaurantsListContainer extends React.Component {
 
 }
 
-RestaurantsListContainer.propTypes = {
-  getRestaurantsRequest: func.isRequired,
-  sendReservationRequest: func.isRequired,
+RestaurantContainer.propTypes = {
+  restaurants: array.isRequired,
+  getRestaurantRequest: func.isRequired,
+  currentRestaurant: object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
     restaurants: state.restaurants,
+    currentRestaurant: state.currentRestaurant,
   };
 }
 
@@ -64,4 +65,4 @@ function mapDispachToProps(dispatch) {
   return bindActionCreators(Object.assign(restaurantActions, reservationActions), dispatch);
 }
 
-export default connect(mapStateToProps, mapDispachToProps)(RestaurantsListContainer);
+export default connect(mapStateToProps, mapDispachToProps)(RestaurantContainer);
