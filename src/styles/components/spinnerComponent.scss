@@ -1,0 +1,54 @@
+$r: 15;
+$d: $r * 2;
+$t: 2000;
+
+.spinner-container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.spinner {
+  border: #{$d/10}px solid $gold;
+  border-radius: 50%;
+  height: #{$d}px;
+  left: 50%;
+  margin-left: -#{$d/2}px;
+  margin-top: -#{$d/2}px;
+  position: absolute;
+  top: 50%;
+  width: #{$d}px;
+
+
+  &:before,
+  &:after {
+    background-color: $gold;
+    border-radius: #{($d/10)/2}px;
+    content: '';
+    display: block;
+    position: absolute;
+    transform-origin: 50% 0%;
+    width: #{$d/10}px;
+  }
+
+  &:before {
+    animation: spin #{$t}ms linear infinite;
+    height: #{$r - ($d/10)-(($d/10))}px;
+    left: #{$r - (($d/10)/2)}px;
+    top: 50%;
+  }
+
+  &:after {
+    animation: spin #{$t/4}ms linear infinite;
+    height: #{$r - ($d/10)}px;
+    left: #{$r - (($d/10)/2)}px;
+    top: 50%;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
