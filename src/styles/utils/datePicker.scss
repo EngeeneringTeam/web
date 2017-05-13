@@ -1,0 +1,42 @@
+.date-picker {
+  -moz-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  -webkit-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  width: 120px;
+
+  .select-day {
+    background-color: $gold;
+    color: $gold;
+    height: 100%;
+    width: 20px;
+
+    svg {
+     path {
+        fill: $white;
+      }
+    }
+  }
+
+  .minus-day {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  .plus-day {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .picker {
+    background-color: $white;
+    border: 0;
+    color: $grey-dark;
+    height: 40px;
+    padding: 0;
+    text-align: center;
+    width: 80px;
+  }
+}
