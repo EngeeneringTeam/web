@@ -6,25 +6,33 @@ class PeoplePicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
+      count: '',
     };
     this.increase = this.increase.bind(this);
     this.decrease = this.decrease.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
 
-  increase(event) {
-    event.preventDefault();
-    const currCount = this.state.count;
-    if (currCount !== 50) {
-      this.setState({count: currCount + 1});
+  increase() {
+    if (this.state.count === '') {
+      this.setState({count: 1});
+    } else if (parseInt(this.state.count, 10) !== 50) {
+      this.setState({count: parseInt(this.state.count, 10) + 1});
     }
   }
 
-  decrease(event) {
-    event.preventDefault();
-    const currCount = this.state.count;
-    if (currCount !== 0) {
-      this.setState({count: currCount - 1});
+  decrease() {
+    if (this.state.count === '') {
+      this.setState({count: 0});
+    } else if (parseInt(this.state.count, 10) !== 0) {
+      this.setState({count: parseInt(this.state.count, 10) - 1});
+    }
+  }
+
+  handleOnChange(event) {
+    const inputPattern = /^(([1-4]{0,1}[0-9]{0,1})|50?|)$/;
+    if (inputPattern.test(event.target.value)) {
+      this.setState({ count: event.target.value });
     }
   }
 
@@ -35,7 +43,11 @@ class PeoplePicker extends React.Component {
           <ArrowSVG />
         </button>
         <div className="counter">
-          {this.state.count}
+          <input type="text" className="counter-value"
+              onChange={this.handleOnChange}
+              value={this.state.count}
+              maxLength="2"
+           />
           <label className="counter-info">ILOŚĆ OSÓB</label>
         </div>
         <button className="change-button increase" onClick={this.increase}>
