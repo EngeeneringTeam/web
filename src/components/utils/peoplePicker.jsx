@@ -6,7 +6,7 @@ class PeoplePicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: '',
+      count: '0',
     };
     this.increase = this.increase.bind(this);
     this.decrease = this.decrease.bind(this);
@@ -30,8 +30,8 @@ class PeoplePicker extends React.Component {
   }
 
   handleOnChange(event) {
-    const inputPattern = /^(([1-4]{0,1}[0-9]{0,1})|50?|)$/;
-    if (inputPattern.test(event.target.value)) {
+    const INPUT_PATTERN = /^(([1-4]{0,1}[0-9]{0,1})|50?|)$/;
+    if (INPUT_PATTERN.test(event.target.value)) {
       this.setState({ count: event.target.value });
     }
   }
