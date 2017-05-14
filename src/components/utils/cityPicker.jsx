@@ -17,25 +17,29 @@ class CityPicker extends React.Component {
       isHidden: true,
     };
 
-    this.toggleHidden = this.toggleHidden.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.openDropDown = this.openDropDown.bind(this);
+    this.chooseCity = this.chooseCity.bind(this);
+    this.closeDropDown = this.closeDropDown.bind(this);
   }
 
-  toggleHidden() {
-    this.setState({isHidden: this.state.isHidden ? false : true});
+  openDropDown() {
+    this.setState({isHidden: !this.state.isHidden});
   }
 
-  handleClick(event) {
+  closeDropDown() {
+    this.setState({isHidden: true});
+  }
+
+  chooseCity(event) {
     this.setState({default: event.target.value});
-    this.setState({isHidden: this.state.isHidden ? false : true});
   }
 
   render() {
     return (
-      <div className="city-picker-component">
-        <button type="button" className="city-picker-content" onClick={this.toggleHidden}>
-          <ArrowSVG/>
+      <div className="city-picker-component" onBlur={()=>{setTimeout(() => this.closeDropDown(), 100);}}>
+        <button type="button" className="city-picker-content" onClick={this.openDropDown}>
           {this.state.default}
+          <ArrowSVG />
         </button>
         {!this.state.isHidden &&
           <div className="city-picker-toggle">
@@ -44,7 +48,7 @@ class CityPicker extends React.Component {
                 this.state.cities.map( (cities, index) => {
                   return (
                     <li key={index}>
-                      <button value={cities.name} onClick={(event) => this.handleClick(event)}>
+                      <button value={cities.name} onClick={(event) => this.chooseCity(event)}>
                         {cities.name}
                       </button>
                     </li>
