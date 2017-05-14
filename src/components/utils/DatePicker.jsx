@@ -21,17 +21,13 @@ class DatePickerComponent extends React.Component {
   }
 
   decrease() {
-    const date = this.state.startDate;
-    if (date >= moment()) {
-      date.add(-1, 'day');
+    if (this.state.startDate >= moment()) {
+      this.setState({startDate: this.state.startDate.add(-1, 'day')});
     }
-    this.setState({startDate: date});
   }
 
   increase() {
-    const date = this.state.startDate;
-    date.add(1, 'day');
-    this.setState({startDate: date});
+    this.setState({startDate: this.state.startDate.add(1, 'day')});
   }
 
   render() {
@@ -43,7 +39,7 @@ class DatePickerComponent extends React.Component {
           selected={this.state.startDate}
           onChange={this.handleChange}
           locale="pl"
-          dateFormat="D dddd MMMM YYYY"
+          dateFormat="DD.MM.YYYY"
           minDate = {moment()}
           readOnly
         />
