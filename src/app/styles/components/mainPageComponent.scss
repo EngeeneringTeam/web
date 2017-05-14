@@ -1,0 +1,53 @@
+.main-page-component {
+  height: 100%;
+  width: 100%;
+
+  .first-view {
+    background-attachment: fixed;
+    background-color: $white;
+    background-image: url('../../public/assets/main_page2.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: flex-start;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    .logo {
+      align-self: flex-start;
+      background-color: $gold;
+      height: 30px;
+      margin: 20px;
+      width: 30px;
+    }
+
+    .select-div {
+      align-self: flex-end;
+      display: flex;
+      height: 100px;
+      justify-content: center;
+      width: 100%;
+
+      .select-bar {
+        background: $gold;
+        height: 60px;
+        width: 70%;
+      }
+      @media screen and (max-width: 800px) and (min-width: 650px) {
+        .select-bar {
+          width: 80%;
+        }
+      }
+      @media screen and (max-width: 650px) {
+        .select-bar {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
