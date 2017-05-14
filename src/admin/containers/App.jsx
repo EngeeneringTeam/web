@@ -1,7 +1,6 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 
-import RestaurantPanelContainer from './RestaurantPanelContainer.jsx';
 import RegisterContainer from './RegisterContainer.jsx';
 
 const App = () => (
