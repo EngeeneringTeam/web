@@ -44,13 +44,16 @@ module.exports = {
 	],
 	devServer: {
 		proxy: {
-      '/admin': {
+      '**': {
 				bypass: function(req, res, proxyOptions) {
 					if(req.path.indexOf('/admin') === 0) {
 						return "/admin.html";
 					}
 					if(req.path.indexOf('/user') === 0) {
 						return "/user.html";
+					}
+					if(req.path.indexOf('/assets') === 0) {
+						return req.path;
 					}
 		      if (req.headers.accept.indexOf("html") !== -1) {
 		        return "/index.html";
