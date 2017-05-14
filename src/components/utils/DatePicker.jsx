@@ -33,7 +33,9 @@ class DatePickerComponent extends React.Component {
   render() {
     return (
       <div className="date-picker">
-        <button className="select-day minus-day" onClick={this.decrease}><ArrowSVG /></button>
+        <button className="select-day minus-day" onClick={this.decrease}>
+          <ArrowSVG />
+        </button>
         <DatePicker
           className="picker"
           selected={this.state.startDate}
@@ -43,7 +45,9 @@ class DatePickerComponent extends React.Component {
           minDate = {moment()}
           readOnly
         />
-      <button className="select-day plus-day" onClick={this.increase}><ArrowSVG /></button>
+        <button className="select-day plus-day" onClick={this.increase}>
+          <ArrowSVG />
+        </button>
       </div>
     );
   }
