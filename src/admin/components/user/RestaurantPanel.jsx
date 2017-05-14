@@ -41,7 +41,6 @@ class RestaurantPanel extends React.Component {
 
 }
 
-
 RestaurantPanel.propTypes = {
   user: object.isRequired,
   userReservations: array.isRequired,

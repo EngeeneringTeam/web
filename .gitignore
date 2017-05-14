@@ -1,5 +1,9 @@
 node_modules
-/public/bundle.js
-/public/bundle.js.map
+/public/app.bundle.js
+/public/app.bundle.js.map
+/public/admin.bundle.js
+/public/admin.bundle.js.map
+/public/user.bundle.js
+/public/user.bundle.js.map
 npm-debug.log
 erl_crash.dump

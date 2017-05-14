@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { array, func, object } from 'prop-types';
 
-import Register from '../components/login/Register.jsx';
+import Register from '../components/register/Register.jsx';
 import Spinner from '../components/utils/Spinner.jsx';
 
 import * as userActions from '../actions/userActions';
