@@ -5,6 +5,7 @@ module.exports = {
 	entry: {
 		app: './src/index.jsx',
 		admin: './src/admin.jsx',
+		user: './src/user.jsx',
 	},
 	output: {
     path: path.join(__dirname, './public'),
