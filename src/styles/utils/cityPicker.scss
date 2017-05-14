@@ -9,17 +9,29 @@
     border: 1px solid $gold;
     border-radius: 5px;
     color: $white;
+    display: flex;
+    flex-direction: row;
     font-family: inherit;
     font-size: 12px;
     font-weight: 700;
     height: 40px;
+    justify-content: center;
     letter-spacing: .5px;
     overflow: hidden;
+    padding: 5px;
     text-decoration: inherit;
     text-overflow: ellipsis;
     text-transform: uppercase;
     white-space: nowrap;
     width: 100%;
+
+    svg {
+      align-self: center;
+
+      path {
+        fill: $white;
+      }
+    }
 
     &:focus {
       border-bottom-left-radius: 0;

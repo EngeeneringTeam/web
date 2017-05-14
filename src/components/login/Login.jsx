@@ -1,7 +1,8 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 
-import CityPicker from '../utils/cityPicker.jsx';
+import PeoplePicker from '../utils/PeoplePicker.jsx';
+import CityPicker from '../utils/Citypicker.jsx';
 
 class Login extends React.Component {
 
@@ -9,6 +10,7 @@ class Login extends React.Component {
     return (
       <div className="login-component">
         Login component
+        <PeoplePicker />
         <CityPicker />
       </div>
     );
