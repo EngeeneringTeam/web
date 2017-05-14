@@ -1,5 +1,5 @@
 import React from 'react';
-import IntroductionPage from './IntroductionPage.jsx';
+import IntroductionSection from './IntroductionSection.jsx';
 
 class MainPage extends React.Component {
 
@@ -13,7 +13,7 @@ class MainPage extends React.Component {
             <div className="select-bar">Select-bar</div>
           </div>
         </div>
-        <IntroductionPage />
+        <IntroductionSection />
     </div>
     );
   }
