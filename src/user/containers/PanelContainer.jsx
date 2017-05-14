@@ -2,7 +2,7 @@ import React from 'react';
 import Promise from 'bluebird';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { func, object } from 'prop-types';
+import { func, object, array } from 'prop-types';
 
 import RestaurantPanel from '../components/user/RestaurantPanel.jsx';
 import Spinner from '../components/utils/Spinner.jsx';
