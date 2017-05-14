@@ -8,7 +8,7 @@ class HourPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      startTime: moment('2017-05-20T00:00:00'),
+      startTime: moment({hour: '12:00'}),
     };
     this.decrease = this.decrease.bind(this);
     this.increase = this.increase.bind(this);
