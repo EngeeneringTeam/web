@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		app: './src/index.jsx',
+		app: './src/app.jsx',
 		admin: './src/admin.jsx',
 		user: './src/user.jsx',
 	},
