@@ -30,9 +30,7 @@ class HourPicker extends React.Component {
           }}
         >
           {this.renderHours()}
-          <ArrowSVG />
         </select>
-
       </div>
     );
   }
