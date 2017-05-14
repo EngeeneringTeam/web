@@ -1,13 +1,24 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
+import {func} from 'prop-types';
 
+import ReservationModal from './ReservationModal.jsx';
 import StarSVG from '../svg/StarSVG.jsx';
 import LocalizationSVG from '../svg/LocalizationSVG.jsx';
 import FlatButton from '../utils/flatButton.jsx';
 
 class RestaurantsList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.openModal = this.openModal.bind(this);
+  }
   render() {
     return (
       <div className="grid">
+        <ReservationModal
+          sendReservationRequest={this.props.sendReservationRequest}
+          ref="ReservationModal"
+        />
         <div className="items">
           <div className="photo">
             <img src="/assets/photo.jpg" alt="photo"/>
@@ -25,12 +36,12 @@ class RestaurantsList extends React.Component {
           </div>
           <div className="buttons">
             <div className="left">
-              <FlatButton>
+              <FlatButton onClick={this.openModal}>
               {'rezerwacja'}
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -53,12 +64,12 @@ class RestaurantsList extends React.Component {
           </div>
           <div className="buttons">
             <div className="left">
-              <FlatButton>
+              <FlatButton onClick={this.openModal}>
               {'rezerwacja'}
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -81,12 +92,12 @@ class RestaurantsList extends React.Component {
           </div>
           <div className="buttons">
             <div className="left">
-              <FlatButton>
+              <FlatButton onClick={this.openModal}>
               {'rezerwacja'}
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -109,12 +120,12 @@ class RestaurantsList extends React.Component {
           </div>
           <div className="buttons">
             <div className="left">
-              <FlatButton>
+              <FlatButton onClick={this.openModal}>
               {'rezerwacja'}
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -137,12 +148,12 @@ class RestaurantsList extends React.Component {
           </div>
           <div className="buttons">
             <div className="left">
-              <FlatButton>
+              <FlatButton onClick={this.openModal}>
               {'rezerwacja'}
               </FlatButton>
             </div>
             <div className="right">
-              <FlatButton>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
                 {'restauracja'}
               </FlatButton>
             </div>
@@ -152,6 +163,14 @@ class RestaurantsList extends React.Component {
     );
   }
 
+  openModal(restaurant) {
+    this.refs.ReservationModal.openModal(restaurant);
+  }
+
 }
+
+RestaurantsList.propTypes = {
+  sendReservationRequest: func.isRequired,
+};
 
 export default RestaurantsList;
