@@ -10,6 +10,16 @@ class HourPicker extends React.Component {
     this.state = {
       startTime: moment('2017-05-20T00:00:00'),
     };
+    this.decrease = this.decrease.bind(this);
+    this.increase = this.increase.bind(this);
+  }
+
+  decrease() {
+    this.setState({startTime: moment(this.state.startTime).add(-15, 'minutes')});
+  }
+
+  increase() {
+    this.setState({startTime: moment(this.state.startTime).add(15, 'minutes')});
   }
 
   renderHours() {
@@ -23,14 +33,21 @@ class HourPicker extends React.Component {
   render() {
     return (
       <div className="hour-picker-component">
+        <button className="select-hour minus-hour" onClick={this.decrease}>
+          <ArrowSVG />
+        </button>
         <select
           className="hour-picker-select"
+          value={moment(this.state.startTime).format('HH:mm')}
           onChange={(event) => {
             this.setState(Object.assign(this.state, {startTime: moment(`${moment(this.state).format('YYYY-MM-DD')}T${event.target.value}`)}));
           }}
         >
           {this.renderHours()}
         </select>
+        <button className="select-hour plus-hour" onClick={this.increase}>
+          <ArrowSVG />
+        </button>
       </div>
     );
   }
