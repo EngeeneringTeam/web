@@ -17,43 +17,38 @@ class CityPicker extends React.Component {
       isHidden: true,
     };
 
-    this.toggleHidden = this.toggleHidden.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.toggleHidden2 = this.toggleHidden2.bind(this);
+    this.openDropDown = this.openDropDown.bind(this);
+    this.chooseCity = this.chooseCity.bind(this);
+    this.closeDropDown = this.closeDropDown.bind(this);
   }
 
-  toggleHidden() {
-    this.setState({isHidden: false});
-    console.log('1');
+  openDropDown() {
+    this.setState({isHidden: !this.state.isHidden});
   }
 
-  toggleHidden2() {
+  closeDropDown() {
     this.setState({isHidden: true});
-    console.log('2');
   }
 
-  handleClick(event) {
+  chooseCity(event) {
     this.setState({default: event.target.value});
-    this.setState({isHidden: true});
-    console.log(this.state.isHidden);
   }
-
 
   render() {
     return (
-      <div className="city-picker-component" >
-        <button type="button" className="city-picker-content"  onClick={this.toggleHidden}>
+      <div className="city-picker-component" onBlur={()=>{setTimeout(() => this.closeDropDown(), 100);}}>
+        <button type="button" className="city-picker-content" onClick={this.openDropDown}>
           {this.state.default}
           <ArrowSVG />
         </button>
         {!this.state.isHidden &&
-          <div className="city-picker-toggle"  >
+          <div className="city-picker-toggle">
             <ul>
               {
                 this.state.cities.map( (cities, index) => {
                   return (
                     <li key={index}>
-                      <button value={cities.name} onClick={(event) => this.handleClick(event)}>
+                      <button value={cities.name} onClick={(event) => this.chooseCity(event)}>
                         {cities.name}
                       </button>
                     </li>
