@@ -1,8 +1,8 @@
 .people-picker {
   -moz-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
   -webkit-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
-  box-shadow: 0 0 60px -9px rgba(0,0,0,71);
   align-items: center;
+  box-shadow: 0 0 60px -9px rgba(0,0,0,71);
   display: flex;
   flex-direction: row;
   height: 40px;
@@ -51,9 +51,9 @@
     border: 1px solid $gold;
     color: $white;
     height: 40px;
+    margin: 0;
     outline: none;
     width: 12px;
-    margin: 0;
 
     &:hover {
       cursor: pointer;
