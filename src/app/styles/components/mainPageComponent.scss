@@ -29,14 +29,18 @@
     .select-div {
       align-self: flex-end;
       display: flex;
-      height: 100px;
+      height: 200px;
       justify-content: center;
       width: 100%;
+      flex-direction: row;
 
       .select-bar {
-        background: $gold;
-        height: 60px;
-        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        height: 40px;
+        width: 50%;
+        padding: 10px;
       }
       @media screen and (max-width: 800px) and (min-width: 650px) {
         .select-bar {

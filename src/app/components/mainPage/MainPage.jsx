@@ -1,5 +1,9 @@
 import React from 'react';
 import IntroductionSection from './IntroductionSection.jsx';
+import CityPicker from '../utils/cityPicker.jsx';
+import DatePicker from '../utils/DatePicker.jsx';
+import HourPicker from '../utils/HourPicker.jsx';
+import PeoplePicker from '../utils/peoplePicker.jsx';
 
 class MainPage extends React.Component {
 
@@ -10,7 +14,13 @@ class MainPage extends React.Component {
         <div className="first-view">
           <div className="logo">L</div>
           <div className="select-div">
-            <div className="select-bar">Select-bar</div>
+            <div className="select-bar">
+              <CityPicker />
+              <DatePicker />
+              <HourPicker />
+              <PeoplePicker />
+            <button>WYSZUKAJ RESTAURACJE</button>
+            </div>
           </div>
         </div>
         <IntroductionSection />
