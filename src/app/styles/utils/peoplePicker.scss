@@ -1,13 +1,14 @@
 .people-picker {
-  -moz-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
-  -webkit-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  -moz-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
+  -webkit-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
+  box-shadow: 0 0 60px -9px rgba(0,0,0,71);
   align-items: center;
-  box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
   display: flex;
   flex-direction: row;
   height: 40px;
   justify-content: center;
-  width: 90px;
+  margin: 10px;
+  width: 80px;
 
   .counter {
     background: $white;
@@ -52,6 +53,7 @@
     height: 40px;
     outline: none;
     width: 12px;
+    margin: 0;
 
     &:hover {
       cursor: pointer;
@@ -65,8 +67,8 @@
   }
 
   .increase {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
 
     svg {
       padding-bottom: 10px;
@@ -75,8 +77,8 @@
   }
 
   .decrease {
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
 
     svg {
       padding-top: 13px;

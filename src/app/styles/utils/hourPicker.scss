@@ -1,12 +1,13 @@
 .hour-picker-component {
-  -moz-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
-  -webkit-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
-  box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  -moz-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
+  -webkit-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
+  box-shadow: 0 0 60px -9px rgba(0,0,0,71);
   display: flex;
   flex-direction: row;
   height: 40px;
   justify-content: center;
-  width: 90px;
+  margin: 10px;
+  width: 80px;
 
   .hour-picker-select {
     -moz-appearance: none;
@@ -18,7 +19,7 @@
     color: $black;
     cursor: pointer;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 700;
     height: 100%;
     padding: 8px;
     width: 60px;
@@ -32,7 +33,6 @@
     align-items: center;
     background-color: $gold;
     border: 0;
-    color: $gold;
     cursor: pointer;
     display: flex;
     height: 100%;
@@ -42,8 +42,8 @@
   }
 
   .minus-hour {
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
     outline: none;
     padding-right: 2px;
 
@@ -57,8 +57,8 @@
   }
 
   .plus-hour {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
     outline: none;
     padding-left: 2px;
 

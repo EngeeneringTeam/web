@@ -1,13 +1,15 @@
 .city-picker-component {
-  -moz-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
-  -webkit-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
-  box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
-  width: 150px;
+  -moz-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
+  -webkit-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
+  box-shadow: 0 0 60px -9px rgba(0,0,0,71);
+  height: 40px;
+  margin: 10px;
+  width: 148px;
 
   .city-picker-content {
     background-color: $gold;
     border: 1px solid $gold;
-    border-radius: 5px;
+    border-radius: 3px;
     color: $white;
     cursor: pointer;
     display: flex;
@@ -24,7 +26,7 @@
     text-overflow: ellipsis;
     text-transform: uppercase;
     white-space: nowrap;
-    width: 100%;
+    width: 150px;
 
     svg {
       align-self: center;
