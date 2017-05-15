@@ -14,6 +14,8 @@ class MainPage extends React.Component {
         <div className="first-view">
           <div className="logo">L</div>
           <div className="select-div">
+            <label className="slogan slogan-name">Slogan</label>
+            <label className="slogan descript">Krótki opis zachęcający</label>
             <div className="select-bar">
               <CityPicker />
               <DatePicker />
