@@ -21,7 +21,7 @@ class MainPage extends React.Component {
               <DatePicker />
               <HourPicker />
               <PeoplePicker />
-            <button className="example-flat-button">WYSZUKAJ RESTAURACJE</button>
+              <button className="example-flat-button">WYSZUKAJ RESTAURACJE</button>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@
   -webkit-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
   box-shadow: 0 0 60px -9px rgba(0,0,0,71);
   height: 40px;
-  margin: 10px;
+  margin: 5px;
   width: 148px;
 
   .city-picker-content {
@@ -51,6 +51,7 @@
       list-style-type: none;
       margin: inherit;
       padding: 1px;
+      width: 100%;
 
       & li {
         border-bottom: 1px solid $grey-light;
