@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import {func} from 'prop-types';
 import Modal from 'react-modal';
+import CloseSVG from '../svg/CloseSVG.jsx';
 
 class ReservationModal extends React.Component {
   constructor(props) {
@@ -33,13 +34,24 @@ class ReservationModal extends React.Component {
         onRequestClose={this.closeModal}
         shouldCloseOnOverlayClick
       >
-        <div className="restaurant-name">
-          <label> Rezerwujesz stolik w {this.state.activeRestaurant.name}</label>
+        <div className="base-line">
+          <div className="close-line">
+            <button
+              className="close-button"
+              onClick={this.closeModal}
+              >
+                <CloseSVG />
+            </button>
+          </div>
+          <div className="reservation-place">
+            <label>
+              Rezerwujesz stolik w
+              <p className="restaurant-name">
+                {this.state.activeRestaurant.name}
+              </p>
+            </label>
+          </div>
         </div>
-
-        <button onClick={this.closeModal}>
-          ZAMKNIJ MODAL
-        </button>
 
         <div className="reservation-information">
           {/* DATA */}
