@@ -48,10 +48,14 @@
       background-color: $white;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
+      height: 110px;
       list-style-type: none;
       margin: inherit;
+      overflow: hidden;
+      overflow-y: scroll;
       padding: 1px;
-      width: 100%;
+      position: relative;
+      width: 148px;
 
       & li {
         border-bottom: 1px solid $grey-light;
