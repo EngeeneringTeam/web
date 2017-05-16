@@ -3,26 +3,23 @@
   -webkit-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
   box-shadow: 0 0 60px -9px rgba(0,0,0,71);
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   height: 40px;
   justify-content: center;
   margin: 5px;
-  width: 82px;
+  width: 100px;
 
-  .hour-picker-select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
+  .hour-picker-content {
     background-color: $white;
-    border: 0 !important;
+    border: 0;
     border-radius: 0;
     color: $black;
     cursor: pointer;
     font-size: 15px;
     font-weight: 700;
-    height: 100%;
+    height: 40px;
     padding: 8px;
-    width: 60px;
+    width: 70px;
 
     &:focus {
       outline: none;
@@ -67,6 +64,58 @@
 
       path {
         fill: $white;
+      }
+    }
+  }
+
+  .hour-picker-toggle {
+    order:1;
+
+    & ul {
+      background-color: $white;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      height: 110px;
+      justify-content: center;
+      list-style-type: none;
+      margin: inherit;
+      overflow: hidden;
+      overflow-y: scroll;
+      padding: 1px;
+      position: relative;
+      width: 68px;
+
+      & li {
+        border-bottom: 1px solid $grey-light;
+        height: 30px;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        & button {
+          background-color: $white;
+          border: 0;
+          color: $grey;
+          cursor: pointer;
+          float: left;
+          font-size: 10px;
+          height: 100%;
+          text-align: center;
+          text-decoration: inherit;
+          text-transform: uppercase;
+          width: 100%;
+
+          &:focus {
+            outline: none;
+          }
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+          }
+        }
       }
     }
   }
