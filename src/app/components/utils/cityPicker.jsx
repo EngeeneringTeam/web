@@ -32,6 +32,7 @@ class CityPicker extends React.Component {
 
   chooseCity(event) {
     this.setState({default: event.target.value});
+    this.setState({isHidden: true});
   }
 
   render() {

@@ -36,6 +36,7 @@ class HourPicker extends React.Component {
 
   chooseHour(event) {
     this.setState(Object.assign(this.state, {startTime: moment(`${moment(this.state).format('YYYY-MM-DD')}T${event.target.value}`)}));
+    this.setState({isHidden: true});
   }
 
   renderHours() {
