@@ -69,13 +69,12 @@
   }
 
   .hour-picker-toggle {
-    order:1;
+    order: 1;
 
     & ul {
       background-color: $white;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
-      display: flex;
       flex-direction: column;
       height: 110px;
       justify-content: center;
@@ -90,6 +89,7 @@
       & li {
         border-bottom: 1px solid $grey-light;
         height: 30px;
+        position: relative;
 
         &:last-child {
           border-bottom: 0;

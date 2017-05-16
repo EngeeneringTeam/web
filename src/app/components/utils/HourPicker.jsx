@@ -43,7 +43,7 @@ class HourPicker extends React.Component {
     for (let i = moment({hour: '00:00'}); i.valueOf() < moment({hour: '24:00'}); i.add(15, 'minutes')) {
       temp.push(
         <li key={i}>
-          <button value={i.format('HH:mm')} onClick={(event) => this.chooseHour(event)}>
+          <button value={i.format('HH:mm')} onMouseDown={(event) => this.chooseHour(event)}>
             {i.format('HH:mm')}
           </button>
         </li>
@@ -54,7 +54,7 @@ class HourPicker extends React.Component {
 
   render() {
     return (
-      <div className="hour-picker-component" onBlur={()=>{setTimeout(() => this.closeDropDown(), 100);}}>
+      <div className="hour-picker-component" onBlur={() => this.closeDropDown()}>
         <button className="select-hour minus-hour" onClick={this.decrease}>
           <ArrowSVG />
         </button>
