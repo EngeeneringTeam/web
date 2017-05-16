@@ -31,7 +31,7 @@
       align-self: center;
       display: flex;
       flex-direction: column;
-      height: 300px;
+      height: 350px;
       justify-content: flex-start;
       width: 100%;
 
@@ -77,6 +77,21 @@
         align-items: center;
         flex-wrap: wrap;
         justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: 300px) {
+      .select-div {
+        height: 60%;
+
+        .slogan-name {
+          font-size: 50px;
+        }
+
+        .descript {
+          font-size: 10px;
+          padding-bottom: 20px;
+        }
       }
     }
   }
