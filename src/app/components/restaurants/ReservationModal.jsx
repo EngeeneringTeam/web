@@ -27,68 +27,95 @@ class ReservationModal extends React.Component {
   render() {
     return (
       <Modal
+        className="reservation-modal"
         isOpen={this.state.isModalVisible}
         contentLabel="ReservationModal"
         onRequestClose={this.closeModal}
         shouldCloseOnOverlayClick
       >
-        {this.state.activeRestaurant.name}<br/>
-        imie:
-        <input
-          defaultValue="Marek"
-          onChange={(event) => this.changeInput(event, 'name')}
-        />
-        <br/>
-        nazwisko:
-        <input
-          defaultValue="Gontarek"
-          onChange={(event) => this.changeInput(event, 'surname')}
-        />
-        <br/>
-        telefon:
-        <input
-          defaultValue="+48600500400"
-          onChange={(event) => this.changeInput(event, 'phoneNumber')}
-        />
-        <br/>
-        email:
-        <input
-          defaultValue="guest@tablebooking.com"
-          onChange={(event) => this.changeInput(event, 'email')}
-        />
-        <br/>
-        ilosc osob:
-        <input
-          defaultValue="5"
-          onChange={(event) => this.changeInput(event, 'peopleNumber')}
-        />
-        <br/>
-        dzień:
-        <input
-          defaultValue="2017-05-20"
-          onChange={(event) => {
-            this.setState(Object.assign(this.state.reservation, {reservationBegin: moment(`${event.target.value}T${moment(this.state.reservation).format('HH:mm')}`)}));
-          }}
-        />
-        <br/>
-        startowa godzina:
-        <select
-          onChange={(event) => {
-            this.setState(Object.assign(this.state.reservation, {reservationBegin: moment(`${moment(this.state.reservation).format('YYYY-MM-DD')}T${event.target.value}`)}));
-          }}
-        >
-          {
-            this.renderHours()
-          }
-        </select>
+        <div className="restaurant-name">
+          <label> Rezerwujesz stolik w {this.state.activeRestaurant.name}</label>
+        </div>
 
-        <br/>
-        <button onClick={this.sendReservation}>
-          ZAREZERWUJ
-        </button>
         <button onClick={this.closeModal}>
           ZAMKNIJ MODAL
         </button>
+
+        <div className="reservation-information">
+          {/* DATA */}
+            <div className="reservation-date">
+              <label>DATA</label>
+              <input
+                defaultValue="2017-05-20"
+                onChange={(event) => {
+                  this.setState(Object.assign(this.state.reservation, {reservationBegin: moment(`${event.target.value}T${moment(this.state.reservation).format('HH:mm')}`)}));
+                }}
+              />
+            </div>
+
+            {/* GODZINA */}
+            <div className="reservation-hour">
+              <label>GODZINA</label>
+              <select
+                onChange={(event) => {
+                  this.setState(Object.assign(this.state.reservation, {reservationBegin: moment(`${moment(this.state.reservation).format('YYYY-MM-DD')}T${event.target.value}`)}));
+                }}
+              >
+                {this.renderHours()}
+              </select>
+            </div>
+
+            {/* LICZBA OSOB */}
+            <div className="reservation-people">
+              <label>LICZBA OSOB</label>
+              <input
+                defaultValue="5"
+                onChange={(event) => this.changeInput(event, 'peopleNumber')}
+              />
+            </div>
+          </div>
+
+          <div className="personal-data">
+
+            {/* IMIE */}
+            <div className="input-person-name">
+              <input
+                defaultValue="Marek"
+                onChange={(event) => this.changeInput(event, 'name')}
+              />
+            </div>
+
+            {/* NAZWISKO */}
+            <div className="input-person-surname">
+              <input
+                defaultValue="Gontarek"
+                onChange={(event) => this.changeInput(event, 'surname')}
+              />
+            </div>
+
+            {/* NUMER TELEFON */}
+            <div className="input-tel-number">
+              <input
+                defaultValue="+48600500400"
+                onChange={(event) => this.changeInput(event, 'phoneNumber')}
+              />
+            </div>
+
+            {/* EMAIL */}
+            <div className="input-email">
+              <input
+                defaultValue="guest@tablebooking.com"
+                onChange={(event) => this.changeInput(event, 'email')}
+              />
+            </div>
+          </div>
+
+          <div className="confirm-reservation">
+            <button onClick={this.sendReservation}>
+              ZAREZERWUJ
+            </button>
+          </div>
+
       </Modal>
     );
   }
