@@ -53,9 +53,6 @@ class ReservationModal extends React.Component {
           </button>
         </div>
 
-        {/* <FlatInput placeholder="test"/>
-        <FlatButton>{'ok'}</FlatButton> */}
-
         <div className="reservation-information">
           {/* DATA */}
             <div className="reservation-date">

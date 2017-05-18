@@ -1,6 +1,6 @@
 .reservation-modal {
   background-attachment: fixed;
-  background-color: $gold;
+  background-color: $grey-dark;
   border: 10px solid $white;
   bottom: 0;
   height: 55%;
@@ -41,7 +41,7 @@
       &:hover {
         svg {
           path {
-            fill: $gold-light;
+            fill: $gold;
           }
         }
       }
@@ -94,22 +94,30 @@
 
         &:focus {
           outline: none;
+
+          &::placeholder {
+            color: transparent;
+          }
+        }
+
+        &::placeholder {
+          color: $grey-light;
         }
 
         &::-webkit-input-placeholder {
-          color: $white;
+          color: $grey-light;
         }
 
         &::-moz-placeholder {
-          color: $white;
+          color: $grey-light;
         }
 
         &:-ms-input-placeholder {
-          color: $white;
+          color: $grey-light;
         }
 
         &:-moz-placeholder {
-          color: $white;
+          color: $grey-light;
         }
       }
     }
@@ -136,19 +144,19 @@
         }
 
         &::-webkit-input-placeholder {
-          color: $white;
+          color: $grey-light;
         }
 
         &::-moz-placeholder {
-          color: $white;
+          color: $grey-light;
         }
 
         &:-ms-input-placeholder {
-          color: $white;
+          color: $grey-light;
         }
 
         &:-moz-placeholder {
-          color: $white;
+          color: $grey-light;
         }
       }
     }
@@ -156,10 +164,10 @@
 
   .inf-personal-data {
     align-items: flex-end;
-    color: $white;
+    color: $gold;
     display: flex;
     font-family: inherit;
-    font-size: 15px;
+    font-size: 17px;
     height: 10%;
     justify-content: center;
     padding: 5px 5px 0px 5px;
@@ -218,13 +226,23 @@
   }
 
   .confirm-reservation {
+    display: flex;
     height: 10%;
-    width: 98%;
+    justify-content: center;
+    margin: 0;
     padding: 1%;
+    width: 98%;
 
     .flat-button {
+      align-self: center;
+      background-color: $gold;
+      border-color: $gold;
+      border-radius: 3px;
+      color: $white;
+      width: 40%;
+
       &:hover {
-        background-color: $gold-light;
+        background-color: $white;
         color: $gold;
       }
     }
