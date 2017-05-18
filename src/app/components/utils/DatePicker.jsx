@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+
 import ArrowSVG from '../svg/ArrowSVG.jsx';
 
 class DatePickerComponent extends React.Component {
@@ -18,16 +20,21 @@ class DatePickerComponent extends React.Component {
     this.setState({
       startDate: date,
     });
+    this.props.onChange(date);
   }
 
   decrease() {
     if (this.state.startDate >= moment()) {
-      this.setState({startDate: this.state.startDate.add(-1, 'day')});
+      const DAY = this.state.startDate.add(-1, 'day');
+      this.setState({startDate: DAY});
+      this.props.onChange(DAY);
     }
   }
 
   increase() {
-    this.setState({startDate: this.state.startDate.add(1, 'day')});
+    const DAY = this.state.startDate.add(1, 'day');
+    this.setState({startDate: DAY});
+    this.props.onChange(DAY);
   }
 
   render() {
@@ -54,7 +61,7 @@ class DatePickerComponent extends React.Component {
 }
 
 DatePickerComponent.propTypes = {
-
+  onChange: PropTypes.func.isRequired,
 };
 
 export default DatePickerComponent;

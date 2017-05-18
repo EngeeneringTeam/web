@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import ArrowSVG from '../svg/ArrowSVG.jsx';
 
 class PeoplePicker extends React.Component {
@@ -6,7 +8,7 @@ class PeoplePicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: '0',
+      count: '1',
     };
     this.increase = this.increase.bind(this);
     this.decrease = this.decrease.bind(this);
@@ -16,16 +18,20 @@ class PeoplePicker extends React.Component {
   increase() {
     if (this.state.count === '') {
       this.setState({count: 1});
+      this.props.onChange(1);
     } else if (parseInt(this.state.count, 10) !== 50) {
       this.setState({count: parseInt(this.state.count, 10) + 1});
+      this.props.onChange(parseInt(this.state.count, 10) + 1);
     }
   }
 
   decrease() {
     if (this.state.count === '') {
       this.setState({count: 0});
+      this.props.onChange(0);
     } else if (parseInt(this.state.count, 10) !== 0) {
       this.setState({count: parseInt(this.state.count, 10) - 1});
+      this.props.onChange(parseInt(this.state.count, 10) - 1);
     }
   }
 
@@ -59,7 +65,7 @@ class PeoplePicker extends React.Component {
 }
 
 PeoplePicker.propTypes = {
-
+  onChange: PropTypes.func.isRequired,
 };
 
 export default PeoplePicker;

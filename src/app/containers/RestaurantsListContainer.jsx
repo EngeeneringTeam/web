@@ -19,7 +19,7 @@ class RestaurantsListContainer extends React.Component {
 
   componentDidMount() {
     this.showSpinner();
-    this.props.getRestaurantsRequest()
+    this.props.getRestaurantsRequest(this.props.location.query)
     .then(() => {
       this.hideSpinner();
     })
