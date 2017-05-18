@@ -3,6 +3,8 @@ import moment from 'moment';
 import {func} from 'prop-types';
 import Modal from 'react-modal';
 import CloseSVG from '../svg/CloseSVG.jsx';
+import FlatInput from '../utils/flatInput.jsx';
+import FlatButton from '../utils/flatButton.jsx';
 
 class ReservationModal extends React.Component {
   constructor(props) {
@@ -29,46 +31,47 @@ class ReservationModal extends React.Component {
     return (
       <Modal
         className="reservation-modal"
-        isOpen={this.state.isModalVisible}
+        isOpen={true}
+        // isOpen={this.state.isModalVisible}
         contentLabel="ReservationModal"
         onRequestClose={this.closeModal}
         shouldCloseOnOverlayClick
       >
         <div className="base-line">
-          <div className="close-line">
-            <button
-              className="close-button"
-              onClick={this.closeModal}
-              >
-                <CloseSVG />
-            </button>
-          </div>
           <div className="reservation-place">
             <label>
-              Rezerwujesz stolik w
               <p className="restaurant-name">
                 {this.state.activeRestaurant.name}
               </p>
             </label>
           </div>
+          <button
+            className="close-button"
+            onClick={this.closeModal}
+            >
+              <CloseSVG />
+          </button>
         </div>
+
+        {/* <FlatInput placeholder="test"/>
+        <FlatButton>{'ok'}</FlatButton> */}
 
         <div className="reservation-information">
           {/* DATA */}
             <div className="reservation-date">
-              <label>DATA</label>
-              <input
-                defaultValue="2017-05-20"
+              <FlatInput
+                placeholder="2017-05-20"
+                // pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}"
                 onChange={(event) => {
                   this.setState(Object.assign(this.state.reservation, {reservationBegin: moment(`${event.target.value}T${moment(this.state.reservation).format('HH:mm')}`)}));
                 }}
-              />
+            />
             </div>
 
             {/* GODZINA */}
             <div className="reservation-hour">
-              <label>GODZINA</label>
               <select
+                className="select-hour"
                 onChange={(event) => {
                   this.setState(Object.assign(this.state.reservation, {reservationBegin: moment(`${moment(this.state.reservation).format('YYYY-MM-DD')}T${event.target.value}`)}));
                 }}
@@ -79,53 +82,60 @@ class ReservationModal extends React.Component {
 
             {/* LICZBA OSOB */}
             <div className="reservation-people">
-              <label>LICZBA OSOB</label>
-              <input
-                defaultValue="5"
+              <FlatInput
+                placeholder="5"
                 onChange={(event) => this.changeInput(event, 'peopleNumber')}
               />
             </div>
           </div>
 
+          <div className="inf-personal-data">
+            <label>Wprowadź swoje dane</label>
+          </div>
+
           <div className="personal-data">
 
             {/* IMIE */}
-            <div className="input-person-name">
-              <input
-                defaultValue="Marek"
+            <div className="person-name">
+              <FlatInput
+                // defaultValue="Marek"
+                placeholder="Imię"
                 onChange={(event) => this.changeInput(event, 'name')}
               />
             </div>
 
             {/* NAZWISKO */}
-            <div className="input-person-surname">
-              <input
-                defaultValue="Gontarek"
+            <div className="person-surname">
+              <FlatInput
+                // defaultValue="Gontarek"
+                placeholder="Nazwisko"
                 onChange={(event) => this.changeInput(event, 'surname')}
               />
             </div>
 
             {/* NUMER TELEFON */}
-            <div className="input-tel-number">
-              <input
-                defaultValue="+48600500400"
+            <div className="person-tel-number">
+              <FlatInput
+                // defaultValue="+48600500400"
+                placeholder="Telefon"
                 onChange={(event) => this.changeInput(event, 'phoneNumber')}
               />
             </div>
 
             {/* EMAIL */}
-            <div className="input-email">
-              <input
-                defaultValue="guest@tablebooking.com"
+            <div className="person-email">
+              <FlatInput
+                // defaultValue="guest@tablebooking.com"
+                placeholder="Email"
                 onChange={(event) => this.changeInput(event, 'email')}
               />
             </div>
           </div>
 
           <div className="confirm-reservation">
-            <button onClick={this.sendReservation}>
+            <FlatButton onClick={this.sendReservation}>
               ZAREZERWUJ
-            </button>
+            </FlatButton>
           </div>
 
       </Modal>
