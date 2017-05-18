@@ -1,5 +1,5 @@
 import React from 'react';
-import {} from 'prop-types';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import ArrowSVG from '../svg/ArrowSVG.jsx';
 
@@ -19,11 +19,15 @@ class HourPicker extends React.Component {
   }
 
   decrease() {
-    this.setState({startTime: moment(this.state.startTime).add(-15, 'minutes')});
+    const TIME = moment(this.state.startTime).add(-15, 'minutes');
+    this.setState({startTime: TIME});
+    this.props.onChange(TIME.format('HH:mm'));
   }
 
   increase() {
-    this.setState({startTime: moment(this.state.startTime).add(15, 'minutes')});
+    const TIME = moment(this.state.startTime).add(15, 'minutes');
+    this.setState({startTime: TIME});
+    this.props.onChange(TIME.format('HH:mm'));
   }
 
   openDropDown() {
@@ -35,8 +39,10 @@ class HourPicker extends React.Component {
   }
 
   chooseHour(event) {
-    this.setState(Object.assign(this.state, {startTime: moment(`${moment(this.state).format('YYYY-MM-DD')}T${event.target.value}`)}));
+    const choosedHour = moment(`${moment(this.state).format('YYYY-MM-DD')}T${event.target.value}`);
+    this.setState(Object.assign(this.state, {startTime: choosedHour}));
     this.setState({isHidden: true});
+    this.props.onChange(event.target.value);
   }
 
   renderHours() {
@@ -81,7 +87,7 @@ class HourPicker extends React.Component {
 }
 
 HourPicker.propTypes = {
-
+  onChange: PropTypes.func.isRequired,
 };
 
 export default HourPicker;

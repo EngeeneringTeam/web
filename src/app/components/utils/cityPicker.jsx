@@ -1,19 +1,12 @@
 import React from 'react';
-import {array} from 'prop-types';
+import PropTypes from 'prop-types';
 import ArrowSVG from '../svg/ArrowSVG.jsx';
 
 class CityPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      default: 'Miasto',
-      cities: [
-        { name: 'Poznań'},
-        { name: 'Brudzew'},
-        { name: 'Nekla'},
-        { name: 'Warszawa'},
-        { name: 'Gorzów Wielkopolski'},
-      ],
+      pickerValue: 'Miasto',
       isHidden: true,
     };
 
@@ -31,22 +24,25 @@ class CityPicker extends React.Component {
   }
 
   chooseCity(event) {
-    this.setState({default: event.target.value});
-    this.setState({isHidden: true});
+    this.setState({
+      isHidden: true,
+      pickerValue: event.target.value,
+    });
+    this.props.onChange(event.target.value);
   }
 
   render() {
     return (
       <div className="city-picker-component" onBlur={() => this.closeDropDown()}>
         <button type="button" className="city-picker-content" onClick={this.openDropDown}>
-          {this.state.default}
+          {this.state.pickerValue}
           <ArrowSVG />
         </button>
         {!this.state.isHidden &&
           <div className="city-picker-toggle">
             <ul>
               {
-                this.state.cities.map( (cities, index) => {
+                this.props.citiesData.map( (cities, index) => {
                   return (
                     <li key={index}>
                       <button value={cities.name} onMouseDown={(event) => this.chooseCity(event)}>
@@ -65,7 +61,8 @@ class CityPicker extends React.Component {
 }
 
 CityPicker.propTypes = {
-  cities: array,
+  citiesData: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default CityPicker;

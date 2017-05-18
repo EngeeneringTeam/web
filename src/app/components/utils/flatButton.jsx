@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 const FlatButton = (props) => (
   <button
     className={`flat-button ${props.picker ? 'picker' : ''}`}
-    onClick={props.onClick}
+    onClick={() => props.onClick()}
     type="button"
   >
     {props.children}
