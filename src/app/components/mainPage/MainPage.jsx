@@ -4,6 +4,8 @@ import CityPicker from '../utils/cityPicker.jsx';
 import DatePicker from '../utils/DatePicker.jsx';
 import HourPicker from '../utils/HourPicker.jsx';
 import PeoplePicker from '../utils/peoplePicker.jsx';
+import FlatButton from '../utils/flatButton.jsx';
+import ArrowSVG from '../svg/ArrowSVG.jsx';
 
 class MainPage extends React.Component {
 
@@ -21,7 +23,10 @@ class MainPage extends React.Component {
               <DatePicker />
               <HourPicker />
               <PeoplePicker />
-              <button className="example-flat-button">WYSZUKAJ RESTAURACJE</button>
+              <FlatButton>
+                SZUKAJ
+                <ArrowSVG />
+              </FlatButton>
             </div>
           </div>
         </div>
