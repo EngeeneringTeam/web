@@ -66,7 +66,7 @@ class MainPage extends React.Component {
       pathname: '/restaurants',
       query: {
         city: this.state.info.city,
-        date: this.state.info.date.format(),
+        date: this.state.info.date.format('YYYY-MM-DDTHH:mm'),
         peopleNumber: this.state.info.peoples,
       },
     });
@@ -82,7 +82,7 @@ class MainPage extends React.Component {
   }
 
   changeHourInput(value) {
-    const choosedHour = moment(`${moment(this.state.info.date).format('YYYY-MM-DD')}T${value}`);
+    const choosedHour = moment(`${moment(this.state.info.date).format('YYYY-MM-DD')}T${value.format('HH:mm')}`);
     this.setState(Object.assign(this.state.info, {date: choosedHour}));
   }
 }

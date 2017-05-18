@@ -5,7 +5,7 @@ export function getRestaurantsRequest(params) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       API
-        .get(`/restaurants${QUERY_PARAMS}`)
+        .get(`/restaurants/search${QUERY_PARAMS}`)
         .then((body) => {
           dispatch({ type: 'CHANGE_RESTAURANTS', restaurants: body});
           resolve();
