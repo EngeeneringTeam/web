@@ -1,15 +1,12 @@
 .reservation-modal {
   background-attachment: fixed;
-  background-color: $grey-dark;
-  border: 10px solid $white;
+  background-color: $white;
+  border-radius: 10px;
   bottom: 0;
-  height: 55%;
+  height: 60%;
   left: 0;
   margin: auto;
-  min-height: 380px;
-  min-width: 280px;
   overflow: auto;
-  padding: 2%;
   position: absolute;
   right: 0;
   top: 0;
@@ -22,26 +19,31 @@
 
   .base-line {
     display: flex;
-    height: 13%;
+    height: 20%;
     justify-content: space-between;
+    padding: 2%;
 
     .close-button {
       background-color: transparent;
       border: 0;
       cursor: pointer;
-      height: 20px;
+      height: 30%;
       outline: none;
+      width: 10%;
 
       svg {
+        height: 100%;
+        width: 100%;
+
         path {
-          fill: $white;
+          fill: $gold;
         }
       }
 
       &:hover {
         svg {
           path {
-            fill: $gold;
+            fill: $grey-dark;
           }
         }
       }
@@ -49,201 +51,81 @@
 
     .reservation-place {
       align-self: center;
-      color: $white;
+      color: $grey-dark;
       font-family: inherit;
-      font-size: 22px;
+      font-size: 2.5vw;
       font-weight: bold;
-      padding: 5px;
+      padding: 10px;
       text-align: center;
 
       .restaurant-name {
-        color: $white;
+        color: $grey-dark;
       }
     }
   }
 
   .reservation-information {
     align-items: center;
+    background-color: $grey-dark;
+    border-radius: 3px;
     display: flex;
-    flex-wrap: wrap;
-    height: 20%;
-    justify-content: space-around;
-    padding: 5px;
-
-    .reservation-date {
-      width: 30%;
-    }
-
-    .reservation-people {
-      width: 7%;
-    }
+    flex-direction: column;
+    height: 45%;
+    justify-content: center;
+    margin: 0 10%;
+    padding: 5%;
+    width: 70%;
 
     .reservation-date,
+    .reservation-hour,
     .reservation-people {
+      align-items: center;
+      background-color: $white;
+      border-radius: 3px;
+      color: $grey-dark;
+      display: flex;
+      font-family: inherit;
+      font-size: 1.5vw;
+      font-weight: bold;
+      height: 15%;
+      justify-content: space-between;
+      margin-top: 4%;
+      padding: 5%;
+      width: 70%;
 
-      .flat-input {
-        background-color: transparent;
-        border: 0;
-        border-bottom: 2px solid $white;
-        border-radius: 0;
-        color: $white;
-        display: block;
-        font-size: 15px;
-        padding: 10px 10px 10px 5px;
-        width: 100%;
-
-        &:focus {
-          outline: none;
-
-          &::placeholder {
-            color: transparent;
-          }
-        }
-
-        &::placeholder {
-          color: $grey-light;
-        }
-
-        &::-webkit-input-placeholder {
-          color: $grey-light;
-        }
-
-        &::-moz-placeholder {
-          color: $grey-light;
-        }
-
-        &:-ms-input-placeholder {
-          color: $grey-light;
-        }
-
-        &:-moz-placeholder {
-          color: $grey-light;
-        }
+      p {
+        color: $gold;
+        cursor: default;
+        font-size: 1.8vw;
       }
     }
 
-    .reservation-hour {
-      width: 23%;
-
-      .select-hour {
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        appearance: none;
-        background-color: transparent;
-        border: 0;
-        border-bottom: 2px solid $white;
-        border-radius: 0;
-        color: $white;
-        display: block;
-        font-size: 15px;
-        padding: 10px 10px 10px 5px;
-        width: 100%;
-
-        &:focus {
-          outline: none;
-        }
-
-        &::-webkit-input-placeholder {
-          color: $grey-light;
-        }
-
-        &::-moz-placeholder {
-          color: $grey-light;
-        }
-
-        &:-ms-input-placeholder {
-          color: $grey-light;
-        }
-
-        &:-moz-placeholder {
-          color: $grey-light;
-        }
-      }
+    .reservation-date {
+      margin: 0;
     }
   }
 
-  .inf-personal-data {
-    align-items: flex-end;
-    color: $gold;
+  .next-step {
     display: flex;
-    font-family: inherit;
-    font-size: 17px;
-    height: 10%;
-    justify-content: center;
-    padding: 5px 5px 0px 5px;
-    text-align: center;
-    width: 100%;
-  }
-
-  .personal-data {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 35%;
-    justify-content: space-around;
-    padding: 3%;
-    width: 94%;
-
-    .person-name,
-    .person-surname,
-    .person-tel-number,
-    .person-email {
-      width: 40%;
-
-      .flat-input {
-        background-color: transparent;
-        border: 0;
-        border-bottom: 1px solid $white;
-        border-radius: 0;
-        color: $white;
-        display: block;
-        font-size: 12px;
-        padding: 10px 10px 10px 5px;
-        width: 100%;
-
-        &:focus {
-          outline: none;
-        }
-
-        &::-webkit-input-placeholder {
-          color: $white;
-        }
-
-        &::-moz-placeholder {
-          color: $white;
-        }
-
-        &:-ms-input-placeholder {
-          color: $white;
-        }
-
-        &:-moz-placeholder {
-          color: $white;
-        }
-      }
-    }
-  }
-
-  .confirm-reservation {
-    display: flex;
-    height: 10%;
-    justify-content: center;
+    height: 14%;
+    justify-content: flex-end;
     margin: 0;
-    padding: 1%;
-    width: 98%;
+    padding-top: 10%;
+    width: 100%;
 
     .flat-button {
       align-self: center;
       background-color: $gold;
-      border-color: $gold;
-      border-radius: 3px;
+      border: 0;
+      border-radius: 0;
       color: $white;
-      width: 40%;
+      font-size: 2vw;
+      height: 100%;
+      width: 100%;
 
       &:hover {
-        background-color: $white;
-        color: $gold;
+        // background-color: $grey-dark;
+        color: $grey-dark;
       }
     }
   }

@@ -56,82 +56,27 @@ class ReservationModal extends React.Component {
         <div className="reservation-information">
           {/* DATA */}
             <div className="reservation-date">
-              <FlatInput
-                placeholder="2017-05-20"
-                // pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}"
-                onChange={(event) => {
-                  this.setState(Object.assign(this.state.reservation, {reservationBegin: moment(`${event.target.value}T${moment(this.state.reservation).format('HH:mm')}`)}));
-                }}
-            />
+              <label>Data: </label>
+            <p>{this.state.reservation.reservationBegin.format('DD-MM-YYYY')}</p>
             </div>
 
             {/* GODZINA */}
             <div className="reservation-hour">
-              <select
-                className="select-hour"
-                onChange={(event) => {
-                  this.setState(Object.assign(this.state.reservation, {reservationBegin: moment(`${moment(this.state.reservation).format('YYYY-MM-DD')}T${event.target.value}`)}));
-                }}
-              >
-                {this.renderHours()}
-              </select>
+              <label>Godzina:</label>
+            <p>{this.state.reservation.reservationBegin.format('HH:mm')}</p>
             </div>
 
             {/* LICZBA OSOB */}
             <div className="reservation-people">
-              <FlatInput
-                placeholder="5"
-                onChange={(event) => this.changeInput(event, 'peopleNumber')}
-              />
+                <label>Liczba osób: </label>
+                <p>{this.state.reservation.peopleNumber}</p>
             </div>
           </div>
 
-          <div className="inf-personal-data">
-            <label>Wprowadź swoje dane</label>
-          </div>
-
-          <div className="personal-data">
-
-            {/* IMIE */}
-            <div className="person-name">
-              <FlatInput
-                // defaultValue="Marek"
-                placeholder="Imię"
-                onChange={(event) => this.changeInput(event, 'name')}
-              />
-            </div>
-
-            {/* NAZWISKO */}
-            <div className="person-surname">
-              <FlatInput
-                // defaultValue="Gontarek"
-                placeholder="Nazwisko"
-                onChange={(event) => this.changeInput(event, 'surname')}
-              />
-            </div>
-
-            {/* NUMER TELEFON */}
-            <div className="person-tel-number">
-              <FlatInput
-                // defaultValue="+48600500400"
-                placeholder="Telefon"
-                onChange={(event) => this.changeInput(event, 'phoneNumber')}
-              />
-            </div>
-
-            {/* EMAIL */}
-            <div className="person-email">
-              <FlatInput
-                // defaultValue="guest@tablebooking.com"
-                placeholder="Email"
-                onChange={(event) => this.changeInput(event, 'email')}
-              />
-            </div>
-          </div>
-
-          <div className="confirm-reservation">
-            <FlatButton onClick={this.sendReservation}>
-              ZAREZERWUJ
+          <div className="next-step">
+            <FlatButton
+              // onClick={this.sendReservation}>
+              DALEJ
             </FlatButton>
           </div>
 
@@ -139,13 +84,13 @@ class ReservationModal extends React.Component {
     );
   }
 
-  renderHours() {
-    const temp = [];
-    for (let i = moment({hour: '00:00'}); i.valueOf() < moment({hour: '24:00'}); i.add(15, 'minutes')) {
-      temp.push(<option key={i} value={i.format('HH:mm')}>{i.format('HH:mm')}</option>);
-    }
-    return temp;
-  }
+  // renderHours() {
+  //   const temp = [];
+  //   for (let i = moment({hour: '00:00'}); i.valueOf() < moment({hour: '24:00'}); i.add(15, 'minutes')) {
+  //     temp.push(<option key={i} value={i.format('HH:mm')}>{i.format('HH:mm')}</option>);
+  //   }
+  //   return temp;
+  // }
 
   sendReservation() {
     this.props.sendReservationRequest(this.state.reservation, this.state.activeRestaurant.id);
