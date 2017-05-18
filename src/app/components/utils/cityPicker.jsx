@@ -32,11 +32,12 @@ class CityPicker extends React.Component {
 
   chooseCity(event) {
     this.setState({default: event.target.value});
+    this.setState({isHidden: true});
   }
 
   render() {
     return (
-      <div className="city-picker-component" onBlur={()=>{setTimeout(() => this.closeDropDown(), 100);}}>
+      <div className="city-picker-component" onBlur={() => this.closeDropDown()}>
         <button type="button" className="city-picker-content" onClick={this.openDropDown}>
           {this.state.default}
           <ArrowSVG />
@@ -48,7 +49,7 @@ class CityPicker extends React.Component {
                 this.state.cities.map( (cities, index) => {
                   return (
                     <li key={index}>
-                      <button value={cities.name} onClick={(event) => this.chooseCity(event)}>
+                      <button value={cities.name} onMouseDown={(event) => this.chooseCity(event)}>
                         {cities.name}
                       </button>
                     </li>

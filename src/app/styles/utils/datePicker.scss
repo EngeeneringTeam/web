@@ -1,11 +1,16 @@
 .date-picker {
-  -moz-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
-  -webkit-box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
-  box-shadow: 0 0 51px -25px rgba(0,0,0,0.71);
+  -moz-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
+  -webkit-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
+  box-shadow: 0 0 60px -9px rgba(0,0,0,71);
   display: flex;
-  height: 40px;
+  height: 18%;
   justify-content: center;
-  width: 110px;
+  margin: 5px;
+  max-height: 60px;
+  max-width: 125px;
+  min-height: 40px;
+  min-width: 110px;
+  width: 22%;
 
   .select-day {
     align-items: center;
@@ -16,13 +21,15 @@
     display: flex;
     height: 100%;
     justify-content: center;
+    max-width: 20px;
+    min-width: 15px;
     padding: 0;
-    width: 15px;
+    width: 15%;
   }
 
   .minus-day {
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
     outline: none;
     padding-left: 2px;
 
@@ -36,8 +43,8 @@
   }
 
   .plus-day {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
     outline: none;
     padding-left: 2px;
 
@@ -53,13 +60,15 @@
   .picker {
     border: 0;
     color: $grey-dark;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    height: 40px;
+    height: 100%;
+    max-width: 120px;
+    min-width: 90px;
     padding: 0;
     text-align: center;
     text-transform: uppercase;
-    width: 80px;
+    width: 100%;
 
     &:focus {
       outline: none;
@@ -136,4 +145,8 @@
 
 .react-datepicker__day.react-datepicker__day--disabled {
   color: $gold !important;
+}
+
+.react-datepicker__input-container {
+  height: 100%;
 }
