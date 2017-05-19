@@ -42,6 +42,7 @@ class RestaurantsListContainer extends React.Component {
       <Spinner visible={this.state.spinner}>
         <RestaurantsList
           sendReservationRequest={this.props.sendReservationRequest}
+          restaurants={this.props.restaurants}
         />
       </Spinner>
     );

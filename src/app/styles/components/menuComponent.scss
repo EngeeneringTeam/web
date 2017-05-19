@@ -1,0 +1,28 @@
+.menu-component {
+  background-color: $white;
+  border-bottom: 1px solid $grey-light;
+  height: 70px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  .menu-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 13px 2em;
+  }
+
+  .search-bar {
+    display: flex;
+    width: 49%;
+  }
+
+  .button {
+    display: flex;
+    flex-direction: row;
+  }
+}

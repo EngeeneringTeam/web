@@ -1,0 +1,83 @@
+$snappy: cubic-bezier(.694,  .048, .335, 1);
+
+.field-container {
+  border: 0;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.icons-container {
+  height: 41px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 41px;
+}
+
+.icon-close {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-200%);
+  transition: opacity .25s ease, transform .43s $snappy;
+  width: 100%;
+
+  svg {
+    fill: $grey-light;
+  }
+}
+
+.icon-search {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  transition: opacity .25s ease, transform .43s $snappy;
+  width: 100%;
+
+  svg {
+    fill: $grey-light;
+  }
+}
+
+.field {
+  background: $white;
+  border: 0 solid $gold;
+  border-radius: 0;
+  font-size: 13px;
+  height: 100%;
+  letter-spacing: .5px;
+  padding: 1.5em 1em 1.5em 4em;
+  // transition: all .4s ease;
+  width: 100%;
+
+  &:focus {
+    border-bottom: 2px solid $gold;
+    color: $grey-dark;
+    outline: none;
+    + .icons-container {
+      background-color: $gold;
+      .icon-close {
+        opacity: 1;
+        transform: translateX(0);
+
+        svg {
+          fill: $white;
+        }
+      }
+      .icon-search {
+        opacity: 0;
+        transform: translateX(200%);
+      }
+    }
+  }
+}

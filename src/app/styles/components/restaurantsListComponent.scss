@@ -1,107 +1,207 @@
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script&subset=latin-ext');
+$dg-narrow: 700px;
+$dg-wide: 1000px;
+@mixin dg-wide {
+  @media (min-width: #{$dg-wide}) {
+    @content;
+  }
+}
 
-.grid {
-  flex: 1;
-  padding: 3em;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 40px;
+@mixin dg-narrow {
+  @media (min-width: #{$dg-narrow}) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.container {
+  color: $grey-dark;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  // max-width: 1280px;
+  padding: 6em 1em;
+  width: 100%;
 }
 
 .items {
-  text-transform: uppercase;
-  font-size: 12px;
-  color: $grey;
-  height: 107%;
-  text-align: center;
-  position:relative;
-  background-color: $white;
-  border-radius: 10px;
-  z-index: 0;
-  -webkit-box-shadow: 0px 0px 51px -25px rgba(0,0,0,0.71);
-  -moz-box-shadow: 0px 0px 51px -25px rgba(0,0,0,0.71);
-  box-shadow: 0px 0px 51px -25px rgba(0,0,0,0.71);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
 
-  .photo {
-    -webkit-box-shadow: inset 0px -200px 69px -102px rgba(255,255,255,1);
-    -moz-box-shadow: inset 0px -200px 69px -102px rgba(255,255,255,1);
-    box-shadow: inset 0px -200px 69px -102px rgba(255,255,255,1);
-    z-index: 1;
+.item {
+  background: $white;
+  border: 1px solid $grey-light;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1em 2em;
+  margin-bottom: 2em;
+  overflow: hidden;
+  position: relative;
+  width: calc(100% - 2em);
+
+  .items[data-view='grid-view'] & {
+    @include dg-narrow {
+      float: right;
+      height: 450px;
+      width: calc(50% - 2em);
+
+      &:nth-child(3) {
+        clear: both;
+      }
+
+      &:nth-child(4) {
+        clear: initial;
+      }
+    }
+
+    @include dg-wide {
+      width: calc((100% / 4) - 2em);
+
+      &:nth-child(3) {
+        clear: initial;
+      }
+
+      &:nth-child(4) {
+        clear: both;
+      }
+
+      @media only screen and (min-width: 1000px) and (max-width: 1350px) {
+        width: calc((100% / 3) - 2em);
+      }
+    }
+  }
+
+  .items[data-view='list-view'] & {
+    @include dg-narrow {
+      height: 200px;
+
+      @media only screen and (min-width: 2000px) {
+        width: calc((100% / 2) - 2em);
+      }
+
+      @media only screen and (min-width: 3500px) {
+        width: calc((100% / 3) - 2em);
+      }
+    }
+  }
+
+  & .photo {
+    align-items: center;
+    background: $white;
+    display: flex;
+    text-align: center;
+
+    @include dg-narrow {
+      justify-content: center;
+    }
 
     img {
-      border-radius: 10px 10px 0 0;
-      position:relative;
-      display: block;
+      height: 250px;
+      margin: 0 auto;
+      object-fit: cover;
       width: 100%;
-      z-index: -1;
-    }
-  }
-
-  .details {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: -2em;
-    margin-bottom: 1.5em;
-    position: relative;
-
-    .title {
-      text-transform: capitalize;
-      font-family: 'Dancing Script';
-      font-size: 40px;
-      color: $grey-dark;
     }
 
-    .rating {
-      svg {
-        margin: 0 auto;
-        padding: 0;
+    .items[data-view='list-view'] & {
+      @include dg-narrow {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 300px;
 
-        path {
-          fill: $gold;
-
-          &:hover {
-            fill: $gold-light;
-          }
+        & img {
+          height: 100%;
+          object-fit: cover;
+          width: 100%;
         }
       }
     }
+  }
 
-    .description {
-      margin: 10px;
+  &-content-box {
+    flex: 1;
+    padding: 2em 1em 1em;
+
+    .content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .items[data-view="list-view"] & {
+      @include dg-narrow {
+        padding-left: calc(200px + 7em);
+      }
+    }
+
+    &-type {
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin: 0 0 2em;
+      text-transform: uppercase;
+
+      &::before {
+        color: $gold;
+        content: '| ';
+      }
+    }
+
+    &-title {
+      font-size: 18px;
+      line-height: 1;
+      margin: 0 0 .5em;
+    }
+
+    &-localization {
+      clear: both;
+      color: $grey;
+      font-size: 12px;
+      letter-spacing: 1px;
+      line-height: 1.5;
+      margin: 0 0 1em;
       padding: 0;
-
-      svg {
-        width: 10px;
-        path {
-          fill: $grey;
-        }
-      }
-    }
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    // bottom: 1.5em;
-    // position: absolute;
-
-    .left,
-    .right {
-      width: 45%;
     }
   }
 }
 
-@media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.dc-view-switcher {
+  display: none;
+  margin: 1em;
+  text-align: right;
 
-  // .item.special {
-  //   grid-row-end: span 2;
-  //   grid-column-end: span 2;
-  // }
+  @include dg-narrow {
+    display: block;
+  }
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  & .centered {
+    margin: 5px;
+  }
+}
+
+.search {
+  padding: 1em;
 }
