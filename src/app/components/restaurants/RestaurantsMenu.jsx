@@ -1,7 +1,7 @@
 import React from 'react';
-import {func, string} from 'prop-types';
+import PropTypes from 'prop-types';
 
-import FlatButton from '../utils/flatButton.jsx';
+import FlatButton from '../utils/FlatButton.jsx';
 import SearchInput from '../utils/SearchInput.jsx';
 
 class RestaurantsMenu extends React.Component {
@@ -61,9 +61,9 @@ class RestaurantsMenu extends React.Component {
 }
 
 RestaurantsMenu.propTypes = {
-  checkInputValue: func,
-  changeLayout: func,
-  placeholder: string,
+  checkInputValue: PropTypes.func,
+  changeLayout: PropTypes.func,
+  placeholder: PropTypes.string,
 };
 
 export default RestaurantsMenu;

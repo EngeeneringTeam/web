@@ -13,7 +13,7 @@ const FlatButton = (props) => (
 
 FlatButton.propTypes = {
   onClick: PropTypes.func,
-  children: PropTypes.string,
+  children: PropTypes.any,
   picker: PropTypes.bool,
   centered: PropTypes.bool,
   full: PropTypes.bool,

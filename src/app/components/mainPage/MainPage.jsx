@@ -8,7 +8,7 @@ import CityPicker from '../utils/cityPicker.jsx';
 import DatePicker from '../utils/DatePicker.jsx';
 import HourPicker from '../utils/HourPicker.jsx';
 import PeoplePicker from '../utils/peoplePicker.jsx';
-import FlatButton from '../utils/flatButton.jsx';
+import FlatButton from '../utils/FlatButton.jsx';
 import ArrowSVG from '../svg/ArrowSVG.jsx';
 
 class MainPage extends React.Component {

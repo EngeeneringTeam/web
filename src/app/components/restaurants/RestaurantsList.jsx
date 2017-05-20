@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ReservationModal from './ReservationModal.jsx';
 import HomeSVG from '../svg/HomeSVG.jsx';
 import ReservationSVG from '../svg/ReservationSVG.jsx';
-import FlatButton from '../utils/flatButton.jsx';
+import FlatButton from '../utils/FlatButton.jsx';
 import RestaurantsMenu from './RestaurantsMenu.jsx';
 
 class RestaurantsList extends React.Component {
@@ -22,9 +22,7 @@ class RestaurantsList extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.restaurants !== this.props.restaurants) {
-      this.setState({
-        searchArray: this.props.restaurants,
-      });
+      this.setState({searchArray: this.props.restaurants});
     }
   }
 
@@ -98,7 +96,8 @@ class RestaurantsList extends React.Component {
 }
 
 RestaurantsList.propTypes = {
-  // sendReservationRequest: PropTypes.func.isRequired,
+  sendReservationRequest: PropTypes.func.isRequired,
+  restaurants: PropTypes.array,
 };
 
 export default RestaurantsList;

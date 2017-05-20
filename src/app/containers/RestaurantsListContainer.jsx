@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {func} from 'prop-types';
+import PropTypes from 'prop-types';
 
 import RestaurantsList from '../components/restaurants/RestaurantsList.jsx';
 import Spinner from '../components/utils/Spinner.jsx';
@@ -51,8 +51,9 @@ class RestaurantsListContainer extends React.Component {
 }
 
 RestaurantsListContainer.propTypes = {
-  getRestaurantsRequest: func.isRequired,
-  sendReservationRequest: func.isRequired,
+  getRestaurantsRequest: PropTypes.func.isRequired,
+  sendReservationRequest: PropTypes.func.isRequired,
+  restaurants: PropTypes.array,
 };
 
 function mapStateToProps(state) {
