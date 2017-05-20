@@ -57,12 +57,15 @@ class RestaurantsList extends React.Component {
               this.state.searchArray.map( (data, index) => {
                 return (
                   <div className="item" key={index}>
+                    <div className="rating-test">
+                      Ocena: {data.rate}
+                    </div>
                     <div className="photo">
                       <img src="/assets/photo.jpg"/>
                     </div>
                     <div className="item-content-box">
                       <div className="content">
-                        <h2 className="item-content-box-type">{data.rate}</h2>
+                        <h2 className="item-content-box-type">BAR</h2>
                         <h3 className="item-content-box-title">{data.name}</h3>
                         {/* <div className="rating">
                           <StarSVG/><StarSVG/><StarSVG/><StarSVG/><StarSVG/>

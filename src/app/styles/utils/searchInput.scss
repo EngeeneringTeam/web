@@ -65,14 +65,9 @@ $snappy: cubic-bezier(.694,  .048, .335, 1);
     color: $grey-dark;
     outline: none;
     + .icons-container {
-      background-color: $gold;
       .icon-close {
         opacity: 1;
         transform: translateX(0);
-
-        svg {
-          fill: $white;
-        }
       }
       .icon-search {
         opacity: 0;
