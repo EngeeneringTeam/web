@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ReservationModal from './ReservationModal.jsx';
 import HomeSVG from '../svg/HomeSVG.jsx';
 import ReservationSVG from '../svg/ReservationSVG.jsx';
+import LocalizationSVG from '../svg/LocalizationSVG.jsx';
 import FlatButton from '../utils/FlatButton.jsx';
 import RestaurantsMenu from './RestaurantsMenu.jsx';
 
@@ -57,23 +58,19 @@ class RestaurantsList extends React.Component {
               this.state.searchArray.map( (data, index) => {
                 return (
                   <div className="item" key={index}>
-                    <div className="rating-test">
+                    <div className="rating">
                       Ocena: {data.rate}
                     </div>
                     <div className="photo">
-                      <img src="/assets/photo.jpg"/>
+                      <img src="/assets/photo-2.jpg"/>
                     </div>
                     <div className="item-content-box">
                       <div className="content">
-                        <h2 className="item-content-box-type">BAR</h2>
                         <h3 className="item-content-box-title">{data.name}</h3>
-                        {/* <div className="rating">
-                          <StarSVG/><StarSVG/><StarSVG/><StarSVG/><StarSVG/>
-                          <p>{data.rating} opinii</p>
-                        </div> */}
+                        <h2 className="item-content-box-type">BAR</h2>
                         <p className="item-content-box-localization">
-                          {data.street} <br/>
-                          {data.city}
+                          <LocalizationSVG width={15} height={15} />
+                          {data.street}, {data.city}
                         </p>
                         <div className="buttons">
                           <FlatButton onClick={this.openModal} centered full>

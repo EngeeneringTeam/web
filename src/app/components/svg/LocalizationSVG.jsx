@@ -1,10 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const LocalizationSVG = () => (
-  <svg height="20px" viewBox="0 0 20 20" width="20px">
-    <path d="M10,5 C7.2,5 5,7.2 5,10 C5,12.8 7.2,15 10,15 C12.8,15 15,12.8 15,10 C15,7.2 12.8,5 10,5 L10,5 Z M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/>
+const LocalizationSVG = (props) => (
+  <svg width={props.width} height={props.height} viewBox="0 0 530.719 530.719">
+    <circle cx="265.36" cy="197.619" r="89.304"/>
+    <path d="M265.36,530.719c0,0,197.627-223.944,197.627-333.09C462.987,88.482,374.507,0,265.36,0
+      C156.213,0,67.731,88.482,67.731,197.628C67.731,306.774,265.36,530.719,265.36,530.719z M265.36,61.171
+      c75.352,0,136.448,61.085,136.448,136.448S340.712,334.066,265.36,334.066c-75.353,0-136.447-61.085-136.447-136.447
+      S190.007,61.171,265.36,61.171z"/>
   </svg>
-
 );
+
+LocalizationSVG.propTypes = {
+  height: PropTypes.number,
+  width: PropTypes.number,
+};
 
 export default LocalizationSVG;
