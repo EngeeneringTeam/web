@@ -10,6 +10,7 @@
 @import './components/mainPageComponent';
 @import './components/introductionSectionComponent';
 @import './components/menuComponent';
+@import './components/restaurantProfileComponent';
 
 /* UTILS */
 @import './utils/flatButton';
@@ -19,3 +20,4 @@
 @import './utils/peoplePicker';
 @import '../../../node_modules/react-datepicker/dist/react-datepicker-cssmodules.css';
 @import './utils/searchInput';
+@import './utils/react-tabs';

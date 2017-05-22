@@ -1,0 +1,161 @@
+@mixin vendorize($property, $value) {
+	-webkit-#{$property}: $value;
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	#{$property}: $value;
+}
+
+html {
+	@include vendorize(box-sizing, border-box);
+}
+
+*, *:before, *:after {
+	@include vendorize(box-sizing, inherit);
+}
+
+$gutter: 15px;
+
+@mixin display($type) {
+	@if $type == flex {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	} @else {
+		display: $type;
+	}
+}
+
+@mixin flex-direction($value: row) {
+	@include vendorize(flex-direction, $value);
+}
+
+@mixin justify-content($value: flex-start) {
+	@include vendorize(justify-content, $value);
+}
+
+@mixin align-items($value: flex-start) {
+	@include vendorize(align-items, $value);
+}
+
+@mixin flex($value) {
+	@include vendorize(flex, $value);
+}
+
+@mixin flex-flow($value: row) {
+	@include vendorize(flex-flow, $value);
+}
+
+.grid-flex {
+	margin: 0;
+	padding: 0;
+
+	@include display(flex);
+	@include flex-direction(row);
+	@include justify-content(flex-start);
+	@include align-items(flex-start);
+
+	width: 100%;
+
+	& > *:not(:first-child):not(.grid-flex) {
+		margin-left: $gutter;
+	}
+
+	& > *:not(.grid-flex) {
+		margin-bottom: $gutter;
+	}
+}
+
+.grid-flex-container {
+	@extend .grid-flex;
+	@include flex-direction(column);
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+$widths: ten twenty thirty forty fifty sixty seventy eighty ninety hundred full;
+
+@for $i from 1 through length($widths) {
+	.grid-flex > .#{nth($widths, $i)} {
+    background: $white;
+    border: 1px solid $grey-light;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em 2em;
+    position: relative;
+		width: $i * 10%;
+	}
+}
+
+.grid-flex > .third {
+	width: 33.3333%;
+}
+
+.grid-flex > .twothird {
+	width: 66.6666%;
+}
+
+.grid-flex > .twothirds {
+	width: 66.6666%;
+}
+
+.grid-flex > .quarter {
+	width: 25%;
+}
+
+.grid-flex > .threequarter {
+	width: 75%;
+}
+
+.grid-flex > .threequarters {
+	width: 75%;
+}
+
+.grid-flex > .half {
+	width: 50%;
+}
+
+.grid-flex > *:not(.grid-flex) {
+	min-height: 3em;
+}
+
+.grid-flex-container {
+	width: 100%;
+	padding: 0em 3em;
+}
+
+p {
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding: 15px 0;
+	font-size: 0.9em;
+	color: #333;
+}
+
+@media screen and (max-width: 700px) {
+	.grid-flex > *:not(.grid-flex) {
+		width: 100%;
+	}
+
+	.grid-flex > *:not(:first-child):not(.grid-flex) {
+		margin-left: 0;
+	}
+
+	.grid-flex {
+		@include flex-flow(row wrap);
+	}
+}
+
+.full {
+  img {
+    max-height: 250px;
+    margin: 0 auto;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+//
