@@ -19,11 +19,11 @@
     cursor: pointer;
     display: flex;
     font-family: inherit;
-    font-size: 1.2vw;
+    font-size: calc(.6vw + 10px);
     font-weight: 700;
     height: 100%;
     justify-content: center;
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
     overflow: hidden;
     padding: 2%;
     text-align: center;
