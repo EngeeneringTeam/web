@@ -1,40 +1,43 @@
 .react-tabs {
   &__tab-list {
-    border-bottom: 1px solid #aaa;
     margin: 0 0 10px;
+    border-bottom: 1px solid $grey-light;
     padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 
   &__tab {
+    outline: none;
     display: inline-block;
-    border: 1px solid transparent;
-    border-bottom: none;
+    border-bottom: 5px solid $grey-light;
     bottom: -1px;
+    color: $grey;
     position: relative;
     list-style: none;
-    padding: 6px 12px;
+    padding: 16px 3em;
     cursor: pointer;
 
     &--selected {
-      background: #fff;
-      border-color: #aaa;
-      color: black;
-      border-radius: 5px 5px 0 0;
+      color: $grey-dark;
+      border-color: $gold;
     }
     &:focus {
       box-shadow: 0 0 5px hsl(208, 99%, 50%);
       border-color: hsl(208, 99%, 50%);
       outline: none;
 
-      &:after {
-        content: "";
-        position: absolute;
-        height: 5px;
-        left: -4px;
-        right: -4px;
-        bottom: -5px;
-        background: #fff;
-      }
+      // &:after {
+      //   outline: none;
+      //   content: "";
+      //   position: absolute;
+      //   height: 5px;
+      //   left: -4px;
+      //   right: -4px;
+      //   bottom: -5px;
+      //   background: #fff;
+      // }
     }
   }
 
@@ -46,7 +49,7 @@
     }
 
     &--disabled {
-      color: GrayText;
+      color: $grey-light;
       cursor: default;
     }
   }
