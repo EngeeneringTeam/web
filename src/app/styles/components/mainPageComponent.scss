@@ -31,8 +31,9 @@
       align-self: center;
       display: flex;
       flex-direction: column;
-      height: 70%;
+      height: 60%;
       justify-content: flex-start;
+      text-align: center;
       width: 100%;
 
 
@@ -42,25 +43,19 @@
       }
 
       .slogan-name {
-        font-size: 100px;
+        font-size: 8vw;
       }
 
       .descript {
-        font-size: 20px;
-        padding-bottom: 7%;
-      }
-    }
-
-    @media screen and (min-width: 2000px) {
-      .select-div {
-        height: 40%;
+        font-size: 1.5vw;
+        padding-bottom: 4%;
       }
     }
 
     .select-bar {
       display: flex;
       flex-direction: row;
-      height: 80%;
+      height: 60%;
       justify-content: space-between;
       padding: 10px;
       width: 70%;
@@ -98,32 +93,27 @@
       }
     }
 
-    @media screen and (max-width: 900px) {
-      .select-bar {
-        width: 100%;
+    @media screen and (max-width: 500px) {
+      .slogan-name {
+        font-size: 50px !important;
+      }
+
+      .descript {
+        font-size: 15px !important;
+        padding-bottom: 4%;
       }
     }
 
     @media screen and (max-width: 900px) {
+      .select-div {
+        height: 50%;
+      }
+
       .select-bar {
         align-items: center;
         flex-wrap: wrap;
         justify-content: center;
-      }
-    }
-
-    @media screen and (max-width: 300px) {
-      .select-div {
-        height: 60%;
-
-        .slogan-name {
-          font-size: 50px;
-        }
-
-        .descript {
-          font-size: 10px;
-          padding-bottom: 20px;
-        }
+        width: 100%;
       }
     }
   }
