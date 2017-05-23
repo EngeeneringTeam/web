@@ -43,7 +43,7 @@ class RestaurantsMenu extends React.Component {
           <div className="search-bar">
             <SearchInput
               placeholder={this.state.isPlaceholderVisible ? 'Wyszukaj...' : ''}
-              onChange={(event) => this.changeSearchInput(event)}
+              onChange={() => this.changeSearchInput()}
               onClick={this.hiddenPlaceholder}
               onBlur={this.onSearchBlur}
             />
