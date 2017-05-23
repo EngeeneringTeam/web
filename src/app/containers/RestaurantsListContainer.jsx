@@ -53,7 +53,7 @@ class RestaurantsListContainer extends React.Component {
 RestaurantsListContainer.propTypes = {
   getRestaurantsRequest: PropTypes.func.isRequired,
   sendReservationRequest: PropTypes.func.isRequired,
-  restaurants: PropTypes.array,
+  restaurants: PropTypes.array.isRequired,
 };
 
 function mapStateToProps(state) {

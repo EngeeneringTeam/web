@@ -8,7 +8,7 @@ class RestaurantsMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      placeholder: 'Wyszukaj...',
+      isPlaceholderVisible: true,
     };
     this.changeSearchInput = this.changeSearchInput.bind(this);
     this.changeMenuLayout = this.changeMenuLayout.bind(this);
@@ -29,11 +29,11 @@ class RestaurantsMenu extends React.Component {
   }
 
   hiddenPlaceholder() {
-    this.setState({placeholder: ''});
+    this.setState({isPlaceholderVisible: false});
   }
 
   onSearchBlur() {
-    this.setState({placeholder: 'Wyszukaj...'});
+    this.setState({isPlaceholderVisible: true});
   }
 
   render() {
@@ -42,14 +42,14 @@ class RestaurantsMenu extends React.Component {
         <div className="menu-content">
           <div className="search-bar">
             <SearchInput
-              placeholder={this.state.placeholder}
+              placeholder={this.state.isPlaceholderVisible ? 'Wyszukaj...' : ''}
               onChange={(event) => this.changeSearchInput(event)}
               onClick={this.hiddenPlaceholder}
               onBlur={this.onSearchBlur}
             />
           </div>
           <div className="button">
-            <FlatButton onClick={(event) => this.changeMenuLayout(event)}>
+            <FlatButton onClick={() => this.changeMenuLayout()}>
                 {'Zmień widok wyświetlania'}
             </FlatButton>
           </div>
@@ -63,7 +63,6 @@ class RestaurantsMenu extends React.Component {
 RestaurantsMenu.propTypes = {
   checkInputValue: PropTypes.func,
   changeLayout: PropTypes.func,
-  placeholder: PropTypes.string,
 };
 
 export default RestaurantsMenu;

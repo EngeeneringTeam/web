@@ -1,19 +1,15 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
 import ReservationModal from './ReservationModal.jsx';
-import HomeSVG from '../svg/HomeSVG.jsx';
-import ReservationSVG from '../svg/ReservationSVG.jsx';
-import LocalizationSVG from '../svg/LocalizationSVG.jsx';
-import FlatButton from '../utils/FlatButton.jsx';
 import RestaurantsMenu from './RestaurantsMenu.jsx';
+import RestaurantItem from './RestaurantItem.jsx';
 
 class RestaurantsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      layout: 'grid',
+      isListLayout: false,
       searchArray: [],
     };
     this.openModal = this.openModal.bind(this);
@@ -33,11 +29,7 @@ class RestaurantsList extends React.Component {
   }
 
   changeLayout() {
-    if (this.state.layout === 'grid') {
-      this.setState({layout: 'list'});
-    } else {
-      this.setState({layout: 'grid'});
-    }
+    this.setState({ isListLayout: !this.state.isListLayout });
   }
 
   openModal(restaurant) {
@@ -53,38 +45,11 @@ class RestaurantsList extends React.Component {
         />
         <RestaurantsMenu checkInputValue={this.checkInputValue} changeLayout={this.changeLayout}/>
         <div className="container">
-          <div data-view={`${this.state.layout}-view`} className="items">
+          <div data-view={`${this.state.isListLayout ? 'list' : 'grid'}-view`} className="items">
             {
               this.state.searchArray.map( (data, index) => {
                 return (
-                  <div className="item" key={index}>
-                    <div className="rating">
-                      Ocena: {data.rate}
-                    </div>
-                    <div className="photo">
-                      <img src="/assets/photo-2.jpg"/>
-                    </div>
-                    <div className="item-content-box">
-                      <div className="content">
-                        <h3 className="item-content-box-title">{data.name}</h3>
-                        <h2 className="item-content-box-type">BAR</h2>
-                        <p className="item-content-box-localization">
-                          <LocalizationSVG width={15} height={15} />
-                          {data.street}, {data.city}
-                        </p>
-                        <div className="buttons">
-                          <FlatButton onClick={this.openModal} centered full>
-                            <ReservationSVG width={15} height={15} />
-                            <span>{'rezerwacja'}</span>
-                          </FlatButton>
-                          <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 2}});}} centered>
-                            <HomeSVG width={15} height={15} />
-                            <span>{'restauracja'}</span>
-                          </FlatButton>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <RestaurantItem data={data} key={index} openModal={this.openModal}/>
                 );
               })
             }
@@ -97,7 +62,7 @@ class RestaurantsList extends React.Component {
 
 RestaurantsList.propTypes = {
   sendReservationRequest: PropTypes.func.isRequired,
-  restaurants: PropTypes.array,
+  restaurants: PropTypes.array.isRequired,
 };
 
 export default RestaurantsList;
