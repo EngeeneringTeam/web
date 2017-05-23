@@ -19,22 +19,22 @@ export default MainPageContainer;
 const CITIES_DATA = [
   {
     id: 1,
-    name: 'Poznań',
+    name: 'poznań',
   },
   {
     id: 2,
-    name: 'Brudzew',
+    name: 'brudzew',
   },
   {
     id: 3,
-    name: 'Nekla',
+    name: 'nekla',
   },
   {
     id: 4,
-    name: 'Warszawa',
+    name: 'warszawa',
   },
   {
     id: 5,
-    name: 'Gorzów Wielkopolski',
+    name: 'gorzów wielkopolski',
   },
 ];

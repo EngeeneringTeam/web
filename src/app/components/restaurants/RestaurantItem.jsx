@@ -37,7 +37,7 @@ class RestaurantItem extends React.Component {
                 <ReservationSVG width={15} height={15} />
                 <span>{'rezerwacja'}</span>
               </FlatButton>
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 2}});}} centered>
+              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: this.props.data.id}});}} centered>
                 <HomeSVG width={15} height={15} />
                 <span>{'restauracja'}</span>
               </FlatButton>
