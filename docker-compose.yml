@@ -1,5 +1,5 @@
 tablebookingService:
-  image: denisolek/table-booking:0.8.2
+  image: denisolek/table-booking:0.8.5
   ports:
     - "8080:8080"
   environment:
