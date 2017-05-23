@@ -10,22 +10,8 @@ class RestaurantsMenu extends React.Component {
     this.state = {
       isPlaceholderVisible: true,
     };
-    this.changeSearchInput = this.changeSearchInput.bind(this);
-    this.changeMenuLayout = this.changeMenuLayout.bind(this);
     this.hiddenPlaceholder = this.hiddenPlaceholder.bind(this);
     this.onSearchBlur = this.onSearchBlur.bind(this);
-  }
-
-  showSettings(event) {
-    event.preventDefault();
-  }
-
-  changeSearchInput(text) {
-    this.props.checkInputValue(text);
-  }
-
-  changeMenuLayout() {
-    this.props.changeLayout();
   }
 
   hiddenPlaceholder() {
@@ -43,13 +29,13 @@ class RestaurantsMenu extends React.Component {
           <div className="search-bar">
             <SearchInput
               placeholder={this.state.isPlaceholderVisible ? 'Wyszukaj...' : ''}
-              onChange={() => this.changeSearchInput()}
+              onChange={(value) => this.props.checkInputValue(value)}
               onClick={this.hiddenPlaceholder}
               onBlur={this.onSearchBlur}
             />
           </div>
           <div className="button">
-            <FlatButton onClick={() => this.changeMenuLayout()}>
+            <FlatButton onClick={() => this.props.changeLayout()}>
                 {'Zmień widok wyświetlania'}
             </FlatButton>
           </div>
