@@ -1,176 +1,68 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
-import {func} from 'prop-types';
+import PropTypes from 'prop-types';
 
 import ReservationModal from './ReservationModal.jsx';
-import StarSVG from '../svg/StarSVG.jsx';
-import LocalizationSVG from '../svg/LocalizationSVG.jsx';
-import FlatButton from '../utils/flatButton.jsx';
+import RestaurantsMenu from './RestaurantsMenu.jsx';
+import RestaurantItem from './RestaurantItem.jsx';
 
 class RestaurantsList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isListLayout: false,
+      searchArray: [],
+    };
     this.openModal = this.openModal.bind(this);
+    this.checkInputValue = this.checkInputValue.bind(this);
+    this.changeLayout = this.changeLayout.bind(this);
   }
-  render() {
-    return (
-      <div className="grid">
-        <ReservationModal
-          sendReservationRequest={this.props.sendReservationRequest}
-          ref="ReservationModal"
-        />
-        <div className="items">
-          <div className="photo">
-            <img src="/assets/photo.jpg" alt="photo"/>
-          </div>
-          <div className="details">
-            <div className="title">Hola Hola</div>
-            <div className="rating">
-              <StarSVG id="active"/><StarSVG/><StarSVG/><StarSVG/><StarSVG/>
-              <p>123 opinii</p>
-            </div>
-            <div className="description">
-              <LocalizationSVG/>
-              <p>Wrocławska 10, 60-101 Poznań</p>
-            </div>
-          </div>
-          <div className="buttons">
-            <div className="left">
-              <FlatButton onClick={this.openModal}>
-              {'rezerwacja'}
-              </FlatButton>
-            </div>
-            <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
-                {'restauracja'}
-              </FlatButton>
-            </div>
-          </div>
-        </div>
-        <div className="items">
-          <div className="photo">
-            <img src="/assets/photo.jpg" alt="photo"/>
-          </div>
-          <div className="details">
-            <div className="title">Hola Hola</div>
-            <div className="rating">
-              <StarSVG id="active"/><StarSVG/><StarSVG/><StarSVG/><StarSVG/>
-              <p>123 opinii</p>
-            </div>
-            <div className="description">
-              <LocalizationSVG/>
-              <p>Wrocławska 10, 60-101 Poznań</p>
-            </div>
-          </div>
-          <div className="buttons">
-            <div className="left">
-              <FlatButton onClick={this.openModal}>
-              {'rezerwacja'}
-              </FlatButton>
-            </div>
-            <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
-                {'restauracja'}
-              </FlatButton>
-            </div>
-          </div>
-        </div>
-        <div className="items">
-          <div className="photo">
-            <img src="/assets/photo.jpg" alt="photo"/>
-          </div>
-          <div className="details">
-            <div className="title">Hola Hola</div>
-            <div className="rating">
-              <StarSVG id="active"/><StarSVG/><StarSVG/><StarSVG/><StarSVG/>
-              <p>123 opinii</p>
-            </div>
-            <div className="description">
-              <LocalizationSVG/>
-              <p>Wrocławska 10, 60-101 Poznań</p>
-            </div>
-          </div>
-          <div className="buttons">
-            <div className="left">
-              <FlatButton onClick={this.openModal}>
-              {'rezerwacja'}
-              </FlatButton>
-            </div>
-            <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
-                {'restauracja'}
-              </FlatButton>
-            </div>
-          </div>
-        </div>
-        <div className="items">
-          <div className="photo">
-            <img src="/assets/photo.jpg" alt="photo"/>
-          </div>
-          <div className="details">
-            <div className="title">Hola Hola</div>
-            <div className="rating">
-              <StarSVG id="active"/><StarSVG/><StarSVG/><StarSVG/><StarSVG/>
-              <p>123 opinii</p>
-            </div>
-            <div className="description">
-              <LocalizationSVG/>
-              <p>Wrocławska 10, 60-101 Poznań</p>
-            </div>
-          </div>
-          <div className="buttons">
-            <div className="left">
-              <FlatButton onClick={this.openModal}>
-              {'rezerwacja'}
-              </FlatButton>
-            </div>
-            <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
-                {'restauracja'}
-              </FlatButton>
-            </div>
-          </div>
-        </div>
-        <div className="items">
-          <div className="photo">
-            <img src="/assets/photo.jpg" alt="photo"/>
-          </div>
-          <div className="details">
-            <div className="title">Hola Hola</div>
-            <div className="rating">
-              <StarSVG id="active"/><StarSVG/><StarSVG/><StarSVG/><StarSVG/>
-              <p>123 opinii</p>
-            </div>
-            <div className="description">
-              <LocalizationSVG/>
-              <p>Wrocławska 10, 60-101 Poznań</p>
-            </div>
-          </div>
-          <div className="buttons">
-            <div className="left">
-              <FlatButton onClick={this.openModal}>
-              {'rezerwacja'}
-              </FlatButton>
-            </div>
-            <div className="right">
-              <FlatButton onClick={() => {browserHistory.push({pathname: '/restaurant', query: {id: 1}});}}>
-                {'restauracja'}
-              </FlatButton>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.restaurants !== this.props.restaurants) {
+      this.setState({searchArray: this.props.restaurants});
+    }
+  }
+
+  checkInputValue(value) {
+    const FILTER_DATA = this.props.restaurants.filter((element) => {return element.name.toLowerCase().includes(value.toLowerCase());});
+    this.setState({searchArray: FILTER_DATA});
+  }
+
+  changeLayout() {
+    this.setState({ isListLayout: !this.state.isListLayout });
   }
 
   openModal(restaurant) {
     this.refs.ReservationModal.openModal(restaurant);
   }
 
+  render() {
+    return (
+      <div>
+        <ReservationModal
+          sendReservationRequest={this.props.sendReservationRequest}
+          ref="ReservationModal"
+        />
+        <RestaurantsMenu checkInputValue={this.checkInputValue} changeLayout={this.changeLayout}/>
+        <div className="container">
+          <div data-view={`${this.state.isListLayout ? 'list' : 'grid'}-view`} className="items">
+            {
+              this.state.searchArray.map( (data, index) => {
+                return (
+                  <RestaurantItem data={data} key={index} openModal={this.openModal}/>
+                );
+              })
+            }
+          </div>
+        </div>
+    </div>
+    );
+  }
 }
 
 RestaurantsList.propTypes = {
-  sendReservationRequest: func.isRequired,
+  sendReservationRequest: PropTypes.func.isRequired,
+  restaurants: PropTypes.array.isRequired,
 };
 
 export default RestaurantsList;
