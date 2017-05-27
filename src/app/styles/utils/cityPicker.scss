@@ -1,16 +1,13 @@
 .city-picker-component {
   height: 20%;
   margin: 5px;
-  min-height: 40px;
+  min-height: 50px;
   min-width: 150px;
   width: 20%;
 
   .city-picker-content {
     -moz-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
     -webkit-box-shadow: 0 0 60px -9px rgba(0,0,0,0.71);
-    -webkit-display: flex;
-    -webkit-justify-content: center;
-    align-items: center;
     background-color: $gold;
     border: 0;
     border-radius: 3px;
@@ -18,24 +15,30 @@
     color: $white;
     cursor: pointer;
     display: flex;
-    font-family: inherit;
-    font-size: calc(.6vw + 10px);
-    font-weight: 700;
     height: 100%;
     justify-content: center;
-    letter-spacing: .5px;
-    overflow: hidden;
     padding: 2%;
-    text-align: center;
-    text-decoration: inherit;
-    text-overflow: ellipsis;
-    text-transform: uppercase;
-    white-space: nowrap;
     width: 100%;
+
+    p {
+      align-self: center;
+      font-family: inherit;
+      font-size: calc(.6vw + 10px);
+      font-weight: 700;
+      letter-spacing: .5px;
+      overflow: hidden;
+      text-align: center;
+      text-decoration: inherit;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+      width: 80%;
+    }
+
 
     svg {
       align-self: center;
-      height: 40%;
+      height: 50%;
       width: 10%;
 
       path {

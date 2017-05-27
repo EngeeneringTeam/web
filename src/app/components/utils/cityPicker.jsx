@@ -35,7 +35,7 @@ class CityPicker extends React.Component {
     return (
       <div className="city-picker-component" onBlur={() => this.closeDropDown()}>
         <button type="button" className="city-picker-content" onClick={this.openDropDown}>
-          {this.state.pickerValue}
+          <p>{this.state.pickerValue}</p>
           <ArrowSVG />
         </button>
         {!this.state.isHidden &&

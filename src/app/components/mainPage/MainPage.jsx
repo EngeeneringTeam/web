@@ -50,7 +50,7 @@ class MainPage extends React.Component {
               onChange={(value) => {this.changeInput(value, 'peoples');}}
               />
               <FlatButton onClick={() => {this.clickSearch();}}>
-                SZUKAJ
+                <p>SZUKAJ</p>
                 <ArrowSVG />
               </FlatButton>
             </div>
